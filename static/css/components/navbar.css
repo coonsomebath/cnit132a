@@ -1,0 +1,14 @@
+#navbar ul {
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+    list-style-type: none;
+    font-size: 1.3rem;
+}
+
+#navbar a {
+    color: black;
+}
+#navbar a:hover {
+    color: limegreen;
+}

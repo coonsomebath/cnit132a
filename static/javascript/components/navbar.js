@@ -1,4 +1,4 @@
-const app = Vue.createApp({ // using vue.global.js
+const app = Vue.createApp({ 
     template: `
         <ul>
             <li v-for= "(hrefLink, page, index) in pages" :key="page">
@@ -12,7 +12,7 @@ const app = Vue.createApp({ // using vue.global.js
     data() {
         return {
             pages: {
-                'Foyer': 'index.html',
+                'Gallery': 'index.html',
                 'About': 'static/html/about.html', 
                 'Contact': 'static/html/contact.html'
             }
