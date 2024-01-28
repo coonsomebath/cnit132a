@@ -6,16 +6,8 @@
     <title>Foyer</title>
     <!-- https://vuejs.org/guide/quick-start.html -->
     <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
-    <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script> -->
+    <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script>
     
-    <!-- Using module system setup. -->
-    <script type="importmap">
-        {
-          "imports": {
-            "vue": "https://unpkg.com/vue@3.4.15/dist/vue.esm-browser.js"
-          }
-        }
-    </script>
     <base href="/">
 </head>
 <body>
@@ -27,13 +19,6 @@
 
 
 
-    <!-- <script src="static/javascript/components/navbar.js"></script> -->
-
-      
-    <script type="module">
-        // Used with script[type=importmap] above.
-        import navbar from './static/javascript/components/navbar.js'
-        navbar.mount('#navbar');
-    </script>
+    <script src="static/javascript/components/navbar.js"></script>
 </body>
 </html>

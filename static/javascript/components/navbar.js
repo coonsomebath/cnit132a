@@ -1,7 +1,4 @@
-import { createApp } from 'vue'; // Using module system setup
-
-const app = createApp({ // Using module system setup
-// const app = Vue.createApp({ // using vue.global.js
+const app = Vue.createApp({ // using vue.global.js
     template: `
         <ul>
             <li v-for= "(hrefLink, page, index) in pages" :key="page">
@@ -54,5 +51,4 @@ const app = createApp({ // Using module system setup
 */
 
 
-// app.mount('#navbar')
-export default app; // Using module system setup
+app.mount('#navbar');
