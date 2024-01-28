@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact</title>
+    <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script> -->
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3.4.15/dist/vue.esm-browser.js"
+          }
+        }
+    </script>
+    <base href="/">
 </head>
 <body>
-    
+    <header>
+        <nav id="navbar"></nav>
+    </header>
+    <h1>Contact</h1>
+    <script type="module">
+        // Used with script[type=importmap] above.
+        import navbar from './static/javascript/components/navbar.js'
+        navbar.mount('#navbar');
+    </script>
+    <!-- <script src="./static/javascript/components/navbar.js" type="text/javascript"></script> -->
 </body>
 </html>
