@@ -1,7 +1,7 @@
-const app = Vue.createApp({ 
+const navbar = Vue.createApp({ 
     template: `
         <ul>
-            <li v-for= "(hrefLink, page, index) in pages" :key="page">
+            <li v-for="(hrefLink, page, index) in pages" :key="page">
                 <a :href="hrefLink" target="_self">
                     {{ page }}
                 </a>
@@ -51,4 +51,4 @@ const app = Vue.createApp({
 */
 
 
-app.mount('#navbar');
+navbar.mount('#navbar');

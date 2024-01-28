@@ -1,0 +1,44 @@
+{
+    "analytics": {
+        "title": "Analytics",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "imagePath": "/static/images/gallery/Designed_by_Freepik_200.jpg",
+        "imageDesc": "Image of foo."
+    },
+    "performance_organization": {
+        "title": "Performance & Organization",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "imagePath": "/static/images/gallery/Designed_by_Freepik_200.jpg",
+        "imageDesc": "Image of foo."
+    },
+    "grid_flexbox": {
+        "title": "Grid & Flexbox",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "imagePath": "/static/images/gallery/Designed_by_Freepik_200.jpg",
+        "imageDesc": "Image of foo."
+    },
+    "semantics_accessibility": {
+        "title": "Semantics & Accessibility",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "imagePath": "/static/images/gallery/Designed_by_Freepik_200.jpg",
+        "imageDesc": "Image of foo."
+    },
+    "preprocessors": {
+        "title": "Preprocessors",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "imagePath": "/static/images/gallery/Designed_by_Freepik_200.jpg",
+        "imageDesc": "Image of foo."
+    },
+    "animation": {
+        "title": "Animation",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "imagePath": "/static/images/gallery/Designed_by_Freepik_200.jpg",
+        "imageDesc": "Image of foo."
+    },
+    "seo_analytics": {
+        "title": "SEO & Final Analytics Report",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "imagePath": "/static/images/gallery/Designed_by_Freepik_200.jpg",
+        "imageDesc": "Image of foo."
+    }
+}
