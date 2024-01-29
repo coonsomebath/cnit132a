@@ -14,7 +14,7 @@ const gallery = Vue.createApp({
             </div>
             <div class="image-container">
                 <a href="#" target="_self">
-                    <img :src="data.imagePath" :alt="data.imageDesc" width="200" height="200">
+                    <img :src="data.imagePath" :alt="data.imageDesc" width="200" height="200" loading="lazy">
                 </a>
             </div>
         </article>
