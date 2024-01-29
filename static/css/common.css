@@ -3,7 +3,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    /* scrollbar-gutter: stable both-edges; */
     
     /* outline: 1px solid black; */
 }

@@ -10,13 +10,54 @@
     <base href="/">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
     <title>Contact</title>
+    <meta name="description" content="Contact the author of this website.">
+
     <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script>
     <link rel="stylesheet" href="/static/css/components/navbar.css">
     <link rel="stylesheet" href="/static/css/common.css">
 
     <style>
+        .macro-container {
+            margin-right: 17px;
+        }
+        /* body{
+            position: relative;
+        } */
+        body::before {
+            content: "";
+            position: absolute;
+            width: calc(100% - 17px);
+            height: 80vh;
+            background-image: url('/static/images/gallery/ccsf-logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 20%;
+            background-attachment: fixed;
+            opacity: 0.5;
+            z-index: -1;
+        }
         p {
             text-align: center;
+        }
+        @media screen and (max-width: 1080px) {
+            body::before {
+                background-size: 50%;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            body::before {
+                background-size: 70%;
+            }
+        }
+        @media screen and (max-height: 770px) {
+            body::before {
+                background-size: 50%;
+            }
+        }
+        @media screen and (max-height: 667px) {
+            body::before {
+                transform: translateY(80px);
+            }
         }
     </style>
 </head>
