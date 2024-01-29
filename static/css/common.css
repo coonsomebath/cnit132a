@@ -5,5 +5,10 @@ main {
     align-items: center;
 
     
-    outline: 1px solid black;
+    /* outline: 1px solid black; */
+}
+
+p {
+    font-size: 1.2rem;
+    text-wrap: balance;
 }
