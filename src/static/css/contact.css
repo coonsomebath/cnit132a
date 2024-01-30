@@ -3,6 +3,7 @@
 }
 body{
     position: relative;
+    --ccsf-seal: url('https://coonsomebath.github.io/cnit132a/src/static/images/contact/ccsf-logo.png');
 }
 body::before {
     content: "";
@@ -10,7 +11,7 @@ body::before {
     width: calc(100% - 17px);
     height: 80vh;
     /* background-image: var(--ccsf-seal); */
-    background-image: url('https://coonsomebath.github.io/cnit132a/src/static/images/contact/ccsf-logo.png');
+    background-image: var(--ccsf-seal);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20%;
