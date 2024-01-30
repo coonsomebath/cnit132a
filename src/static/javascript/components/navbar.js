@@ -10,11 +10,14 @@ const navbar = Vue.createApp({
     `,
 
     data() {
+
+        const rootPath = window.location.hostname === "127.0.0.1" ? '': '/cnit132a';
+
         return {
             pages: {
-                'Gallery': '/src/index.html',
-                'About': '/src/about.html', 
-                'Contact': '/src/contact.html'
+                'Gallery': `${rootPath}/src/index.html`,
+                'About': `${rootPath}/src/about.html`, 
+                'Contact': `${rootPath}/src/contact.html`
             }
 
         }
