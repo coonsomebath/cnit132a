@@ -2,43 +2,43 @@
     "analytics": {
         "title": "Analytics",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
-        "imagePath": "/static/images/gallery/ga4_200.jpg",
+        "imagePath": "src/static/images/gallery/ga4_200.jpg",
         "imageDesc": "Image of Google Analytics 4 Infographic."
     },
     "performance_organization": {
         "title": "Performance & Organization",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
-        "imagePath": "/static/images/gallery/performance_200.jpg",
+        "imagePath": "src/static/images/gallery/performance_200.jpg",
         "imageDesc": "Image of Performance Written on Paper."
     },
     "grid_flexbox": {
         "title": "Grid & Flexbox",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
-        "imagePath": "/static/images/gallery/grid_flexbox_200.jpg",
+        "imagePath": "src/static/images/gallery/grid_flexbox_200.jpg",
         "imageDesc": "Image of CSS Grid and Flexbox."
     },
     "semantics_accessibility": {
         "title": "Semantics & Accessibility",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
-        "imagePath": "/static/images/gallery/semantics_accessibility_200.jpg",
+        "imagePath": "src/static/images/gallery/semantics_accessibility_200.jpg",
         "imageDesc": "Image of HTML Semantics & Accessibility Text."
     },
     "preprocessors": {
         "title": "Preprocessors",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
-        "imagePath": "/static/images/gallery/preprocessors_200.jpg",
+        "imagePath": "src/static/images/gallery/preprocessors_200.jpg",
         "imageDesc": "Image of CSS Preprocessors Text."
     },
     "animation": {
         "title": "Animation",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
-        "imagePath": "/static/images/gallery/animations_200.jpg",
+        "imagePath": "src/static/images/gallery/animations_200.jpg",
         "imageDesc": "Image of CSS Animation Word Art."
     },
     "seo_analytics": {
         "title": "SEO & Final Analytics Report",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
-        "imagePath": "/static/images/gallery/seo_200.jpg",
+        "imagePath": "src/static/images/gallery/seo_200.jpg",
         "imageDesc": "Image of SEO Infographic."
     }
 }

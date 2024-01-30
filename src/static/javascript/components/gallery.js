@@ -29,7 +29,7 @@ const gallery = Vue.createApp({
     async beforeMount() {
         try{
 
-            const resp = await fetch('/static/data/gallery.json');
+            const resp = await fetch('src/static/data/gallery.json');
             if(!resp.ok){
                 throw new Error('Failed to fetch json data.');
             }

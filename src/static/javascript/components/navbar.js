@@ -12,9 +12,9 @@ const navbar = Vue.createApp({
     data() {
         return {
             pages: {
-                'Gallery': 'index.html',
-                'About': 'static/html/about.html', 
-                'Contact': 'static/html/contact.html'
+                'Gallery': 'src/index.html',
+                'About': 'src/static/html/about.html', 
+                'Contact': 'src/static/html/contact.html'
             }
 
         }
