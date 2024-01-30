@@ -3,7 +3,7 @@
 }
 body{
     position: relative;
-    --ccsf-seal: url('https://coonsomebath.github.io/cnit132a/src/static/images/contact/ccsf-logo.png');
+    --ccsf-seal: url('src/static/images/contact/ccsf-logo.png');
 }
 body::before {
     content: "";
