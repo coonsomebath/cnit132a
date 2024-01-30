@@ -7,18 +7,14 @@
     <meta name="author" content="Bob Khounsombath">
     <meta property="article:published_time" content="2024-02-04">
 
+    <base href="/">
     <script>
-        const baseElement = document.createElement('base');
-        if(window.location.hostname === '127.0.0.1'){
-            baseElement.setAttribute('href', '/');
-        }else{
+        const baseElement = document.querySelector('base');
+        if(window.location.hostname !== '127.0.0.1'){
             baseElement.setAttribute('href', '/cnit132a/src');
         }
-        document.head.appendChild(baseElement);
     </script>
 
-    <!-- <base href="/"> -->
-    <!-- <base href="/cnit132a/src"> -->
     <link rel="icon" href="src/favicon.ico" type="image/x-icon">
     <title>About</title>
     <meta name="description" content="About page for CNIT 132A portfolio site.">
