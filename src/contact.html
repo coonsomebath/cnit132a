@@ -7,16 +7,22 @@
     <meta name="author" content="Bob Khounsombath">
     <meta property="article:published_time" content="2024-02-04">
 
-    <!-- <base href="/"> -->
-    <base href="/cnit132a/">
-    <link rel="icon" href="/src/favicon.ico" type="image/x-icon">
+    <base href="/cnit132a/src">
+    <script>
+        const baseElement = document.querySelector('base');
+        if(window.location.hostname === '127.0.0.1'){
+            baseElement.setAttribute('href', '/');
+        }
+    </script>
+    
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
     <title>Contact</title>
     <meta name="description" content="Contact the author of this website.">
 
     <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="/src/static/css/components/navbar.css">
-    <link rel="stylesheet" href="/src/static/css/common.css">
-    <link rel="stylesheet" href="/src/static/css/contact.css">
+    <link rel="stylesheet" href="src/static/css/components/navbar.css">
+    <link rel="stylesheet" href="src/static/css/common.css">
+    <link rel="stylesheet" href="src/static/css/contact.css">
 
 
 </head>
@@ -45,6 +51,6 @@
 
 
     </div>
-    <script src="/src/static/javascript/components/navbar.js"></script>
+    <script src="src/static/javascript/components/navbar.js"></script>
 </body>
 </html>
