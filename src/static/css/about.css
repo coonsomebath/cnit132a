@@ -26,6 +26,8 @@ img {
     background: linear-gradient(90deg, blue, red, blue) 0px 0px / var(--bg-size) 100%;
     color: transparent;
     -webkit-background-clip: text;
+    
+    /* value: text; is deprecated */
     background-clip: text;
 
     animation: quoteAnime 12s infinite linear;

@@ -2,7 +2,6 @@
     display: flex;
     width: 50%;
     min-width: 200px;
-    /* justify-content: space-between; */
 
     border-radius: 5px;
     margin-bottom: 1rem;
@@ -11,28 +10,29 @@
 }
 [class |= 'description'] {
     max-width: 70%;
+}
 
-    h2 {
-        margin: 1rem;
+[class |= 'description'] h2 {
+    margin: 1rem;
+}
 
-        a {
-            text-decoration: none;
-            color: black;
-        }
-        a:hover {
-            color: green;
-            text-shadow: 1px 1px 0px black;
-        }
-    }
+[class |= 'description'] a {
+    text-decoration: none;
+    color: black;
+}
 
-    hr {
-        border: none;
-        border-top: 1px dotted black;
-    }
+[class |= 'description'] a:hover {
+    color: green;
+    text-shadow: 1px 1px 0px black;
+}
 
-    p {
-        margin: 1rem;
-    }
+[class |= 'description'] hr {
+    border: none;
+    border-top: 1px dotted black;
+}
+
+[class |= 'description'] p {
+    margin: 1rem;
 }
 
 .image-container {

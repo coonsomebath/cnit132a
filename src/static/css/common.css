@@ -10,5 +10,6 @@ main {
 
 p {
     font-size: 1.2rem;
+    /* https://caniuse.com/?search=text-wrap%3A%20balance (66.77% support) */
     text-wrap: balance;
 }
