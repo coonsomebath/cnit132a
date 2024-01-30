@@ -9,7 +9,8 @@ body::before {
     position: absolute;
     width: calc(100% - 17px);
     height: 80vh;
-    background-image: url('/src/static/images/contact/ccsf-logo.png');
+    /* background-image: var(--ccsf-seal); */
+    background-image: url('cnit132a/src/static/images/contact/ccsf-logo.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20%;
