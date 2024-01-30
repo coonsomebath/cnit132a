@@ -38,3 +38,12 @@ git branch -M main
 git push -u origin main
 ```
 + ```git branch -M main``` the flag is a shortcut for ```--move --force```. We are renaming the local default branch name to main from master. In Oct. 2020, GitHub decided to use more politically correct nomenclature.
+
+## Create a "publish" branch for GitHub pages
+```powershell
+git checkout -b publish
+git add -A
+git add .
+git commit -m "initial commit for publish branch"
+git push -u origin publish
+```
