@@ -1,3 +1,6 @@
+:root{
+    --ccsf-seal: url('https://coonsomebath.github.io/cnit132a/src/static/images/contact/ccsf-logo.png');
+}
 .macro-container {
     margin-right: 17px;
 }
@@ -9,7 +12,7 @@ body::before {
     position: absolute;
     width: calc(100% - 17px);
     height: 80vh;
-    background-image: url('/src/static/images/contact/ccsf-logo.png');
+    background-image: var(--ccsf-seal);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20%;

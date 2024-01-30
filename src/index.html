@@ -7,9 +7,17 @@
     <meta name="author" content="Bob Khounsombath">
     <meta property="article:published_time" content="2024-02-04">
 
-    <base href="/">
+    <base href="/cnit132a/src">
+    <script>
+        const baseElement = document.querySelector('base');
+        if(window.location.hostname === '127.0.0.1'){
+            baseElement.setAttribute('href', '/');
+        }
+    </script>
+
+    <!-- <base href="/"> -->
     <!-- <base href="/cnit132a/"> -->
-    <link rel="icon" href="/src/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
     <title>Gallery</title>
     <meta name="description" content="CNIT 132A: Advanced HTML & CSS class portfolio.">
 
