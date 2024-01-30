@@ -7,11 +7,11 @@
     <meta name="author" content="Bob Khounsombath">
     <meta property="article:published_time" content="2024-02-04">
 
-    <base href="/">
+    <base href="/cnit132a/src">
     <script>
         const baseElement = document.querySelector('base');
-        if(window.location.hostname !== '127.0.0.1'){
-            baseElement.setAttribute('href', '/cnit132a/src');
+        if(window.location.hostname === '127.0.0.1'){
+            baseElement.setAttribute('href', '/');
         }
     </script>
 
