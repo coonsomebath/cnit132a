@@ -1,6 +1,5 @@
 const gallery = Vue.createApp({
     template: `
-        <h1>CNIT 132A Portfolio</h1>
         <div v-if="!Object.keys(items).length">Loading...</div>
         <article v-for="(data, titleKey, index) in items" :class="'portfolio-item-' + index" :key="titleKey">
             <div :class="'description-container-' + index">
@@ -29,7 +28,7 @@ const gallery = Vue.createApp({
     async beforeMount() {
         try{
 
-            const resp = await fetch('src/static/data/gallery.json');
+            const resp = await fetch('src/static/data/gallery/gallery.json');
             if(!resp.ok){
                 throw new Error('Failed to fetch json data.');
             }
