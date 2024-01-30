@@ -13,6 +13,9 @@
         if(window.location.hostname === '127.0.0.1'){
             baseElement.setAttribute('href', '/');
         }
+        // this swapping is causing console.errors, but not a problem. strictly a development output.
+        // commenting out script tag and uncommenting <base href="/"> fixes it, but you can't
+        // keep toggling it between views (local vs gh.Pages) for every webpage and path coded!
     </script>
 
     <!-- <base href="/"> -->
@@ -25,10 +28,10 @@
     <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
     <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script>
     
-    <link rel="stylesheet" href="src/static/css/common.css">
-    <link rel="stylesheet" href="src/static/css/index.css">
-    <link rel="stylesheet" href="src/static/css/components/navbar.css">
-    <link rel="stylesheet" href="src/static/css/components/gallery.css">
+    <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/index.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/components/gallery.css" type="text/css">
 </head>
 <body>
     <div class="macro-container">
@@ -41,7 +44,7 @@
         <main id="gallery"></main>
     </div>
 
-    <script src="src/static/javascript/components/navbar.js"></script>
-    <script src="src/static/javascript/components/gallery.js"></script>
+    <script src="src/static/javascript/components/navbar.js" text="text/javascript"></script>
+    <script src="src/static/javascript/components/gallery.js" text="text/javascript"></script>
 </body>
 </html>
