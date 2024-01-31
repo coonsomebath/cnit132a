@@ -1,11 +1,14 @@
+header {
+    /* stabilizes layout from navbar injection. see navbar.css */
+    height: 4rem;
+}
+
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /* scrollbar-gutter: stable both-edges; */
-    
-    /* outline: 1px solid black; */
 }
 
 p {

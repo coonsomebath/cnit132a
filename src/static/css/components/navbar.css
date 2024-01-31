@@ -1,7 +1,16 @@
+#navbar {
+    /* stabilizes layout from navbar injection. see common.css */
+    position: absolute;
+}
+
 #navbar ul {
     display: flex;
     gap: 1rem;
-    justify-content: end;
+
+    /* stabilizes layout from scrollbar (non)existence */
+    /* #navbar{position:absolute} makes this rule moot. */
+    /* justify-content: left; */
+
     list-style-type: none;
     font-size: 1.3rem;
 }
@@ -36,4 +45,12 @@
 
 #navbar a:hover {
     color: var(--hover-theme);
+}
+
+@media screen and (max-width: 600px) {
+    #navbar {
+        left: 50%;
+        transform: translateX(-60%);
+    }
+    
 }

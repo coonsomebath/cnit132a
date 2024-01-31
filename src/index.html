@@ -9,13 +9,17 @@
 
     <base href="/cnit132a/src">
     <script>
+        /* Development: this swapping is causing console.errors, but not a problem. strictly a development output.
+        * commenting out script tag and uncommenting <base href="/"> fixes it, but you can't
+        * keep toggling it between views (local vs gh.Pages) for every webpage and path coded!
+        */
         const baseElement = document.querySelector('base');
+        let vueBuild = '.prod';
         if(window.location.hostname === '127.0.0.1'){
             baseElement.setAttribute('href', '/');
+            vueBuild = '';
         }
-        // this swapping is causing console.errors, but not a problem. strictly a development output.
-        // commenting out script tag and uncommenting <base href="/"> fixes it, but you can't
-        // keep toggling it between views (local vs gh.Pages) for every webpage and path coded!
+        const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
     </script>
 
     <!-- <base href="/"> -->
@@ -25,8 +29,11 @@
     <meta name="description" content="CNIT 132A: Advanced HTML & CSS class portfolio.">
 
     <!-- https://vuejs.org/guide/quick-start.html -->
+    <!-- https://unpkg.com/browse/vue@3.4.15/ -->
     <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
-    <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script>
+
+    <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.js"></script> -->
+    <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script> -->
     
     <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
     <link rel="stylesheet" href="src/static/css/index.css" type="text/css">
@@ -37,14 +44,36 @@
     <div class="macro-container">
         <header>
             <nav id="navbar"></nav>
-
-            <h1>CNIT 132A Portfolio</h1>
         </header>
-
+        
+        <h1>CNIT 132A Portfolio</h1>
         <main id="gallery"></main>
     </div>
 
+    <!-- development: -->
+    <script async>
+        // console.log(vueEndpoint);
+        const scriptElement = document.createElement('script');
+        scriptElement.setAttribute('src', vueEndpoint);
+
+        // Use the onload event to run a callback function after Vue.js is loaded
+        scriptElement.onload = function() {
+            // Load your other scripts that use Vue.js here:
+            const scriptElemNavbar = document.createElement('script');
+            scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
+            document.body.appendChild(scriptElemNavbar);
+
+            const scriptElemGallery = document.createElement('script');
+            scriptElemGallery.setAttribute('src', 'src/static/javascript/components/gallery.js');
+            document.body.appendChild(scriptElemGallery);
+        };
+
+        document.body.appendChild(scriptElement);
+    </script>  
+
+    <!-- production: -->
+    <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
     <script src="src/static/javascript/components/navbar.js"></script>
-    <script src="src/static/javascript/components/gallery.js"></script>
+    <script src="src/static/javascript/components/gallery.js"></script> -->
 </body>
 </html>
