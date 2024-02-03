@@ -13,9 +13,9 @@
         * commenting out script tag and uncommenting <base href="/"> fixes it, but you can't
         * keep toggling it between views (local vs gh.Pages) for every webpage and path coded!
         */
-        const baseElement = document.querySelector('base');
-        let vueBuild = '.prod';
-        if(window.location.hostname === '127.0.0.1'){
+       let vueBuild = '.prod';
+       if(window.location.hostname === '127.0.0.1'){
+            const baseElement = document.querySelector('base');
             baseElement.setAttribute('href', '/');
             vueBuild = '';
         }

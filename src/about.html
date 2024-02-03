@@ -10,9 +10,9 @@
     <base href="/cnit132a/src">
     <script>
         /* development: */
-        const baseElement = document.querySelector('base');
         let vueBuild = '.prod';
         if(window.location.hostname === '127.0.0.1'){
+            const baseElement = document.querySelector('base');
             baseElement.setAttribute('href', '/');
             vueBuild = '';
         }

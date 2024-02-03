@@ -1,5 +1,7 @@
 const navbar = Vue.createApp({ 
-    template: `
+    template: 
+    /* HTML */
+    `
         <ul>
             <li v-for="(hrefLink, page, index) in pages" :key="page">
                 <a :href="hrefLink" target="_self">
@@ -9,7 +11,7 @@ const navbar = Vue.createApp({
         </ul>
     `,
 
-    data() {
+    data: function() {
 
         const rootPath = window.location.hostname === "127.0.0.1" ? '': '/cnit132a';
 

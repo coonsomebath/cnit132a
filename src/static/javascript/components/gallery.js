@@ -1,5 +1,7 @@
 const gallery = Vue.createApp({
-    template: `
+    template: 
+    /* HTML */
+    `
         <div v-if="!Object.keys(items).length">Loading...</div>
         <article v-for="(data, titleKey, index) in items" :class="'portfolio-item-' + index" :key="titleKey">
             <div :class="'description-container-' + index">
