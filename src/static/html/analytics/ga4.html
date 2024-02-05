@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-L4Q6HTS9Z9');
+    </script> -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="src/favicon.ico">
+    <title>Google Analytics 4</title>
+    <meta name="description" content="Providing links to external resources about Google Analytics 4.">
+
+    <base href="/cnit132a/src">
+    <script>
+        /* Development: */
+        let vueBuild = '.prod';
+        if(window.location.hostname === '127.0.0.1'){
+            const baseElement = document.querySelector('base');
+            baseElement.setAttribute('href', '/');
+            vueBuild = '';
+        }
+        const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
+    </script>
+
+    <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/analytics.css" type="text/css">
+</head>
+<body>
+    <header>
+        <nav id="navbar"></nav>
+    </header>
+    
+
+    <main>
+        <h1>
+            Google Analytics&nbsp;4
+            <span>Analyzing User Traffic</span>
+        </h1>
+
+        <div class="frames">
+            <div class="video">
+                <figure>
+                    <iframe
+                        width="560" height="315"
+                        src="https://www.youtube.com/embed/u_ECkoHVlZ8?si=cdLxYuBk6bsgCI6q"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                    <figcaption>Source: Analytics Mania</figcaption>
+                </figure>
+            </div>
+            <div class="glossary">
+                <figure>
+                    <iframe
+                        width="560" height="315"
+                        src="https://www.lovesdata.com/blog/google-analytics-glossary"
+                        title="Google Analytics Term Glossary"
+                        referrerpolicy="noreferrer"
+                        frameborder="0">
+                    </iframe>
+                    <figcaption>
+                        Source:
+                        <a href="https://www.lovesdata.com" rel="noreferrer noopener nofollow external" target="_blank">
+                            Benjamin Mangold
+                        </a>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="homework">
+                <figure>
+                    <iframe
+                    width="560" height="315"
+                    allowfullscreen
+                    src="\src\static\data\ga4\hw2_ga4_questions.pdf"
+                    frameborder="0">
+                    </iframe>
+                </figure>
+            </div>
+        </div>
+
+        <div class="notes">
+            <section>
+                <h2>Initial settings you may want to configure</h2>
+
+                <div>
+                    <h3>
+                        <a 
+                            href="https://support.google.com/analytics/answer/7667196?hl=en&utm_id=ad"
+                            rel="nofollow noreferrer noopener external"
+                            target="_blank"
+                            >
+                            Data retention
+                        </a>
+                    </h3>
+                    <p>
+                        Admin > Data collection and modification > Data retention
+                    </p>
+                    <p>
+                        There are two types: 
+                        <span class="text-bold">Event data</span>
+                         and 
+                        <span class="text-bold">User data</span>.
+                    </p>
+                    <p>
+                        The default is 
+                        <span class="text-bold">2 Months</span>
+                        for Event data and 
+                        <span class="text-bold">14 Months </span>
+                        for User data.
+                        The maximum duration is 14 Months.
+                        Data Retention only affects explorations and funnel reports.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>
+                        <a 
+                            href="https://support.google.com/analytics/answer/10104470"
+                            rel="nofollow noreferrer noopener external"
+                            target="_blank"
+                            >
+                            Internal traffic
+                        </a>
+                    </h3>
+                    <p>
+                        Admin > Data collection and modification > Data streams > 
+                        Stream Name (your target property) > Google tag > 
+                        Configure tag settings > Settings > Show more > 
+                        Define internal traffic
+                    </p>
+                    <p>
+                        After you create the filter, you need to activate it. Write down the
+                        Data filter name and Parameter value for the next step.
+                    </p>
+                    <p>
+                        Admin > Data collection and modification > Data filters > Create data filter
+                    </p>
+                    <p>
+                        In Filter details, enter the Data filter name and Parameter value that you
+                        created in the previous step. In the Filter state section, select the
+                        Active radio button then press the Create button. 
+                    </p>
+                    <p>
+                        You may want to filter out localhost traffic if it is captured. If you have
+                        a static IP address, you may want to filter that out as well.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>
+                        <a 
+                            href="https://support.google.com/analytics/answer/10327750"
+                            rel="nofollow noreferrer noopener external"
+                            target="_blank"
+                            >
+                            List unwanted referrals
+                        </a>
+                    </h3>
+                    <p>
+                        This is relevant if you have links to external services, such as a
+                        payment gateway, that may redirect the user back to your site. If the
+                        user returns in such a way that technically counts as a new session,
+                        you may not want this counted as a referral.
+                    </p>
+                    
+                </div>
+
+                <div>
+                    <h3>
+                        <a 
+                            href="https://support.google.com/analytics/answer/10071811"
+                            rel="nofollow noreferrer noopener external"
+                            target="_blank"
+                            >
+                            Configure your domains
+                        </a>
+                    </h3>
+                    <p>
+                        This is relevant if you have multiple domains hyperlinked/woven into your property
+                        that you want tracked as part of your user&apos;s journey. 
+                    </p>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+
+
+
+
+    <!-- Development -->
+    <script>
+        const scriptElement = document.createElement('script');
+        scriptElement.setAttribute('src', vueEndpoint);
+        
+        scriptElement.onload = function(){
+            const scriptElemNavbar = document.createElement('script');
+            scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
+            document.body.appendChild(scriptElemNavbar);
+        }
+        document.body.appendChild(scriptElement);
+    </script>
+
+    <!-- production: -->
+    <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
+    <script src="src/static/javascript/components/navbar.js"></script> -->
+</body>
+</html>

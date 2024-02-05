@@ -1,6 +1,16 @@
+html,
+body {
+    margin:0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+
 header {
     /* stabilizes layout from navbar injection. see navbar.css */
     height: 4rem;
+    overflow: hidden;
 }
 
 main {
@@ -13,6 +23,5 @@ main {
 
 p {
     font-size: 1.2rem;
-    /* https://caniuse.com/?search=text-wrap%3A%20balance (66.77% support) */
-    text-wrap: balance;
+    font-family: Arial, Helvetica, sans-serif;
 }

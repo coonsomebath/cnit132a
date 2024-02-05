@@ -1,0 +1,84 @@
+
+body {
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    height: calc(100% - 17px);
+    width: 100vw;
+    /* background-color:red; */
+    background-image: url('/src/static/images/ga4/ga4-q20-810.png');
+    /* background-image: url('/src/static/images/ga4/ga4-1300.png'); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+}
+h1 span {
+    display: block;
+}
+
+h1:first-of-type span {
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+div {
+    margin: 2rem 0;
+}
+
+figure {
+    margin: 0;
+}
+
+/* development placeholder only: delete when publishing */
+.glossary,
+.video {
+    width: 560px;
+    height: 315px;
+    background-color: black;
+}
+
+.notes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width:100%;
+    background-color: rgba(255, 226, 141, .5);
+    /* background-color: #ffe28d; */
+}
+
+.notes section {
+    max-width:50%;
+}
+
+.notes h2 {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 560px){
+    iframe {
+        width: 100vw;
+        aspect-ratio: 16/9;
+    }
+
+    .notes section {
+        max-width:90%;
+    }
+}

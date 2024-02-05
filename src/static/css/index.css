@@ -1,3 +1,11 @@
 h1 {
     text-align: center;
+    animation: easeInTitle 1000ms ease-in forwards;
+    opacity: 0;
+}
+
+@keyframes easeInTitle {
+    to {
+        opacity:1;
+    }
 }

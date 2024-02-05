@@ -3,7 +3,8 @@
         "title": "Analytics",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
         "imagePath": "src/static/images/gallery/ga4_200.jpg",
-        "imageDesc": "Image of Google Analytics 4 Infographic."
+        "imageDesc": "Image of Google Analytics 4 Infographic.",
+        "hrefLink": "src/static/html/analytics/ga4.html"
     },
     "performance_organization": {
         "title": "Performance & Organization",

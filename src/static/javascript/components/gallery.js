@@ -6,7 +6,7 @@ const gallery = Vue.createApp({
         <article v-for="(data, titleKey, index) in items" :class="'portfolio-item-' + index" :key="titleKey">
             <div :class="'description-container-' + index">
                 <h2>
-                    <a href="#" target="_self">
+                    <a :href="data.hrefLink" target="_self">
                         {{ data.title }}
                     </a>
                 </h2>
@@ -14,7 +14,7 @@ const gallery = Vue.createApp({
                 <p>{{ data.description }}</p>
             </div>
             <div class="image-container">
-                <a href="#" target="_self">
+                <a :href="data.hrefLink" target="_self">
                     <img :src="data.imagePath" :alt="data.imageDesc" width="200" height="200" loading="lazy">
                 </a>
             </div>
@@ -29,7 +29,6 @@ const gallery = Vue.createApp({
 
     async beforeMount() {
         try{
-
             const resp = await fetch('src/static/data/gallery/gallery.json');
             if(!resp.ok){
                 throw new Error('Failed to fetch json data.');
