@@ -1,13 +1,6 @@
-.macro-container {
-    margin-right: 17px;
-    text-align: center;
-}
-
 p {
     max-width: 100ch;
     line-height: 1.5;
-    /* https://caniuse.com/?search=text-wrap%3A%20balance (66.77% support) */
-    text-wrap: balance;
 }
 
 .sig {
