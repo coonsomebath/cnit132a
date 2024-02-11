@@ -1,3 +1,6 @@
+:root{
+    --analytics-bg: url('https://coonsomebath.github.io/cnit132a/src/static/images/ga4/ga4-q20-810.png');
+}
 
 body {
     position: relative;
@@ -11,8 +14,8 @@ body::before {
     height: calc(100% - 17px);
     width: 100%;
     /* background-color:red; */
-    background-image: url('/src/static/images/ga4/ga4-q20-810.png');
-    /* background-image: url('/src/static/images/ga4/ga4-1300.png'); */
+    background-image: var(--analytics-bg, url('/src/static/images/ga4/ga4-q20-810.png'));
+    /* background-image: url('/src/static/images/ga4/ga4-q20-810.png'); */
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;

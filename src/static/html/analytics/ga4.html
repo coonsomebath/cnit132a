@@ -25,6 +25,7 @@
         if(window.location.hostname === '127.0.0.1'){
             const baseElement = document.querySelector('base');
             baseElement.setAttribute('href', '/');
+            document.documentElement.style.setProperty("--analytics-bg", "url('/src/static/images/ga4/ga4-q20-810.png')")
             vueBuild = '';
         }
         const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
