@@ -1,13 +1,15 @@
 
 body {
     position: relative;
+    --regular-text: 1.2rem;
+    --regular-text-font: Arial, Helvetica, sans-serif;
 }
 
 body::before {
     content: '';
     position: absolute;
     height: calc(100% - 17px);
-    width: 100vw;
+    width: 100%;
     /* background-color:red; */
     background-image: url('/src/static/images/ga4/ga4-q20-810.png');
     /* background-image: url('/src/static/images/ga4/ga4-1300.png'); */
@@ -40,14 +42,16 @@ div {
 
 figure {
     margin: 0;
+    background-color: rgba(255, 226, 141, .5);
 }
 
-/* development placeholder only: delete when publishing */
-.glossary,
-.video {
-    width: 560px;
-    height: 315px;
-    background-color: black;
+figcaption {
+    padding-bottom: 6px;
+    padding-left: 6px;
+}
+
+.frames {
+    margin:0;
 }
 
 .notes {
@@ -72,13 +76,55 @@ figure {
     font-weight: bold;
 }
 
+@media screen and (max-width: 980px){
+    .notes section {
+        max-width:70%;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .notes section {
+        max-width:80%;
+    }
+}
+
 @media screen and (max-width: 560px){
-    iframe {
-        width: 100vw;
+    .video, 
+    .glossary,
+    .homework {
+        display: flex;
+        justify-content: center;
+    }
+
+    .video iframe {
         aspect-ratio: 16/9;
+    }
+
+    iframe,
+    img {
+        width: 100vw;
     }
 
     .notes section {
         max-width:90%;
     }
+
+    ul {
+        --ul-padding-start: 20px;
+        -webkit-padding-start:  var(--ul-padding-start);
+        -moz-padding-start: var(--ul-padding-start);
+        padding-inline-start: var(--ul-padding-start);
+    }
 }
+
+/* Free form exploration */
+ul {
+    font-size: var(--regular-text);
+    font-family: var(--regular-text-font);
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Funnel exploration */

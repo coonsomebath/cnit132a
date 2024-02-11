@@ -37,12 +37,16 @@
 
 .image-container {
     width: 50%;
-    height: 250px;
+    min-height: 250px;
     background-color: #f3f3f3;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;   
+}
+
+.no-break {
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 840px) {

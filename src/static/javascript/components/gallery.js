@@ -11,7 +11,7 @@ const gallery = Vue.createApp({
                     </a>
                 </h2>
                 <hr>
-                <p>{{ data.description }}</p>
+                <p v-html="data.description"></p>
             </div>
             <div class="image-container">
                 <a :href="data.hrefLink" target="_self">

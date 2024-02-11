@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'G-L4Q6HTS9Z9');
-    </script> -->
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +33,11 @@
     <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
     <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
     <link rel="stylesheet" href="src/static/css/analytics.css" type="text/css">
+
+    <script>
+
+        window.document.documentElement.style.setProperty('--window-innerWidth', window.innerWidth + 'px');
+    </script>
 </head>
 <body>
     <header>
@@ -50,6 +55,7 @@
             <div class="video">
                 <figure>
                     <iframe
+                        title="Introduction to Google Analytics 4"
                         width="560" height="315"
                         src="https://www.youtube.com/embed/u_ECkoHVlZ8?si=cdLxYuBk6bsgCI6q"
                         title="YouTube video player" frameborder="0"
@@ -59,33 +65,45 @@
                     <figcaption>Source: Analytics Mania</figcaption>
                 </figure>
             </div>
+
             <div class="glossary">
                 <figure>
                     <iframe
+                        title="GA4 glossary"
                         width="560" height="315"
                         src="https://www.lovesdata.com/blog/google-analytics-glossary"
                         title="Google Analytics Term Glossary"
                         referrerpolicy="noreferrer"
-                        frameborder="0">
+                        frameborder="0"
+                        loading="lazy"
+                        >
                     </iframe>
                     <figcaption>
-                        Source:
+                        Author:
                         <a href="https://www.lovesdata.com" rel="noreferrer noopener nofollow external" target="_blank">
                             Benjamin Mangold
                         </a>
                     </figcaption>
                 </figure>
-            </div>
+            </div>           
+
             <div class="homework">
                 <figure>
                     <iframe
+                    title="Homework Assignment"
                     width="560" height="315"
                     allowfullscreen
-                    src="\src\static\data\ga4\hw2_ga4_questions.pdf"
-                    frameborder="0">
+                    src="src\static\data\ga4\hw2_ga4_questions.pdf"
+                    frameborder="0"
+                    loading="lazy"
+                    >
                     </iframe>
+                    <figcaption>
+                        Author: Bob Khounsombath
+                    </figcaption>
                 </figure>
             </div>
+
         </div>
 
         <div class="notes">
@@ -192,7 +210,413 @@
                 </div>
             </section>
         </div>
+
+        <!-- illustrative applications -->
+        <div class="frames">
+            <div class="video">
+                <figure>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/2XHvRJJB8zE?si=h19dlTJZmLTpXhvQ"
+                        title="3 High-Impact GA4 Explorations" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        >
+                    </iframe>
+                    <figcaption>
+                        Source: Orbit Media Studios
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <!-- exploration types -->
+        <div class="notes">
+            <section>
+                <h2>Explore user traffic</h2>
+
+                <div>
+
+                    <h3>
+                        <a 
+                            href="https://support.google.com/analytics/answer/7579450"
+                            rel="noreferrer noopener nofollow external"
+                            target="_blank"
+                            >
+                            Types of explorations
+                        </a>
+                    </h3>
+
+                    <!-- exploration type list -->
+                    <div>
+                        <ul>
+                            <li>
+                                <a 
+                                    href="https://support.google.com/analytics/answer/9317498"
+                                    rel="noreferrer noopener nofollow external"
+                                    target="_blank"
+                                    >
+                                    Path exploration
+                                </a>
+                                <ul>
+                                    <li>Visualize user interest by how they traverse through your property.</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a 
+                                    href="https://support.google.com/analytics/answer/9327974"
+                                    rel="noreferrer noopener nofollow external"
+                                    target="_blank"
+                                    >
+                                    Funnel exploration
+                                </a>
+                                <ul>
+                                    <li>Visualize user &quot;order of operation&quot; for completed tasks.</li>
+                                    <li>May suggest ways to optimize user experience.</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a 
+                                    href="https://support.google.com/analytics/answer/9283607"
+                                    rel="noreferrer noopener nofollow external"
+                                    target="_blank"
+                                    >
+                                    User Explorer
+                                </a>
+                                <ul>
+                                    <li>Select a group of users then focus on a particular user to observe their journey.</li>
+                                    <li>This may allow you to personalize, optimize, or troubleshoot user experience.</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a 
+                                    href="https://support.google.com/analytics/answer/9327972"
+                                    rel="noreferrer noopener nofollow external"
+                                    target="_blank"
+                                    >
+                                    Free-form exploration
+                                </a>
+                                <ul>
+                                    <li>Create powerful custom analysis using modular building blocks.</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a 
+                                    href="https://support.google.com/analytics/answer/9670133"
+                                    rel="noreferrer noopener nofollow external"
+                                    target="_blank"
+                                    >
+                                    Cohort exploration
+                                </a>
+                                <ul>
+                                    <li>Group users with common characteristics and observe their behavior over time.</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a 
+                                    href="https://support.google.com/analytics/answer/12216232"
+                                    rel="noreferrer noopener nofollow external"
+                                    target="_blank"
+                                    >
+                                    e-Commerce exploration
+                                </a>
+                                <ul>
+                                    <li>
+                                        Insightful analysis that allows you to observe points of interests like 
+                                        Checkout funnel performance and Promotion performance.
+
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a 
+                                    href="https://support.google.com/analytics/answer/9328055"
+                                    rel="noreferrer noopener nofollow external"
+                                    target="_blank"
+                                    >
+                                    Segment overlap
+                                </a>
+                                <ul>
+                                    <li>Visualize how segments of users interrelate, intersect, etc.</li>
+                                    <li>You can use this insight as a basis for cohort formation.</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a 
+                                    href="https://support.google.com/analytics/answer/9947257"
+                                    rel="noreferrer noopener nofollow external"
+                                    target="_blank"
+                                    >
+                                    User lifetime
+                                </a>
+                                <ul>
+                                    <li>Analyze user behavior over the lifetime of their interactions with your property.</li>
+                                    <li>
+                                        Gain insight into points of interest like when was the last time your monthly active users made a purchase
+                                        or was engaged with your property.
+                                    </li>
+                                    <li>
+                                        Find users with the highest lifetime value, with respect to revenues, and see which
+                                        campaign was most effective for this cohort.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+        </div>
         
+        <!-- Free-form exploration -->
+        <div class="frames">
+            <div class="video">
+                <figure>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/Q7BGtWdWaw8?si=n0pdK2Ku0sEFckNC"
+                        title="Free form exploration in GA4" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        >
+                    </iframe>
+                    <figcaption>
+                        Source: Analytics Mania
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="notes">
+            <section>
+                <h2>Free-form exploration technique</h2>
+
+                <div>
+                    <h3>
+                        <a 
+                            href="https://support.google.com/analytics/answer/9327972?#zippy=%2Cin-this-article"
+                            rel="noreferrer noopener nofollow external"
+                            target="_blank"
+                            >
+                            Benefits
+                        </a>
+                    </h3>
+                    <div>
+                        <ul>
+                            <li>Visualize data in a plot or tables</li>
+                            <li>Freedom to choose row and column data to analyze</li>
+                            <li>Ability to juxtapose multiple metrics</li>
+                            <li>Ability to analyze nested group-by data</li>
+                            <li>Ability to use filters and segmentation for granular insight</li>
+                            <li>Create segments and audiences from your data</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <figure>
+                            <img 
+                                src="src/static/images/ga4/groups_560.png" 
+                                alt="Image comparing Segments, Audiences and Comparisons."
+                                loading="lazy"
+                                >
+                            <figcaption>
+                                Source: Orbit Media Studios
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Funnel exploration -->
+        <div class="frames">
+            <div class="video">
+                <figure>
+                    <iframe
+                        id="funnel-iframe"
+                        width="560" height="315"
+                        title="Funnel exploration in GA4" frameborder="0"
+                        src="https://www.youtube.com/embed/xLxOLg5e7bA?si=zKRaTtOEZ0kDovzZ"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        >
+                    </iframe>
+                    <figcaption>
+                        <label for="funnel-source">Source:</label> 
+                        <select id="funnel-source">
+                            <option selected value="lovesData">Loves Data</option>
+                            <option value="analyticsMania">Analytics Mania</option>
+                        </select>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="notes">
+            <section>
+                <h2>Funnel exploration technique</h2>
+                <div>
+                    <h3>
+                        <a 
+                        href="https://support.google.com/analytics/answer/9327974"
+                        rel="noreferrer noopener nofollow external"
+                        target="_blank"
+                        >
+                        Benefits
+                    </a>
+                    </h3>
+                    <ul>
+                        <li>Allows you to define which events pave the way to your business objective.</li>
+                        <li>
+                            Allows you to quantitatively observe the performance of each of your defined event
+                            in terms of Completion and Abandonment rates.
+                        </li>
+                        <li>
+                            Provides insight that may allow you to optimize user experience.
+                            <ul>
+                                <li>
+                                    This may be the kind of analysis Amazon had conducted that led to the 
+                                    One-click shopping user experience innovation.
+                                </li>
+                                <li>
+                                    If your abandonment rate is higher than what you would like during the intermediary
+                                    events that lead to your business objective, why not splice those out.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            You can use Funnel exploration to measure the results of your UI/UX A/B testing experiments.
+                        </li>
+                        <li>
+                            Depending on your how you define a quality prospect, you can choose to allocate some of your
+                            advertising budget to reengage abandoning visitors with Google Ads, etc. 
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Additional Resources</h3>
+                    <p>
+                        <a 
+                            href="https://www.optimizesmart.com/how-to-use-the-funnel-analysis-report-in-google-analytics-4-ga4/"
+                            rel="noreferrer noopener nofollow external"
+                            target="_blank"
+                            >
+                                Optimize Smart, How to use the Funnel Exploration Report...
+                        </a>
+                    </p>
+                    <p>
+                        <a 
+                            href="https://www.analyticsmania.com/post/funnel-analysis-report-in-google-analytics-4/"
+                            rel="noreferrer noopener nofollow external"
+                            target="_blank"
+                            >
+                                Analytics Mania, How to use Funnel Exploration Report...
+                        </a>
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Path exploration -->
+        <div class="frames">
+            <div class="video">
+                <figure>
+                    <iframe
+                        width="560" height="315"
+                        title="Path exploration in GA4" frameborder="0"
+                        src="https://www.youtube.com/embed/DUkpogyAKm8?si=gSn2ZhiNC4WxZRkx"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        loading="lazy"
+                        >
+                    </iframe>
+                    <figcaption>
+                        Source: Analytics Mania
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="notes">
+            <section>
+                <h2>Path exploration technique</h2>
+                <div>
+                    <h3>
+                        <a
+                            href="https://support.google.com/analytics/answer/9317498"
+                            rel="noreferrer noopener nofollow external"
+                            target="_blank"
+                            >
+                        Benefits
+                        </a>
+                    </h3>
+                    <div>
+                        <ul>
+                            <li>Analyze the URL paths that users take through your property.
+                                <ul>
+                                    <li>For example, starting from the landing page or any page, 
+                                        you can see where users tend to go next depicted in a tree plot.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Gain insight into which pages users gravitate toward.
+                                <ul>
+                                    <li>This may suggest what users really want from your property.</li>
+                                    <li>
+                                        For example, if you have a product page but users tend to go to 
+                                        your blog, this may suggest that your product offering is not
+                                        aligned with the user and you may want to change your product
+                                        mix or drop your products page altogether and focus on the blog.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Retrace the users&apos; path that ended with a particular event.
+                                <ul>
+                                    <li>
+                                        For example, if you end with the errors event, you can retrace the
+                                        pathway that the user took to identify the page that has a hyperlink
+                                        that sent the user a 404 Not Found error. You can then fix this bug.
+                                    </li>
+                                    <li>
+                                        Or you can end with a purchase event or some other conversion and
+                                        retrace the steps that the user took.
+                                        <ul>
+                                            <li>
+                                                With this additional insight, you can make informed decisions
+                                                as to how to optimize site traffic.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Additional Resources</h3>
+                        <p>
+                            <a 
+                                href="https://www.analyticsmania.com/post/how-to-do-path-analysis-in-google-analytics-4/"
+                                rel="noreferrer noopener nofollow external"
+                                target="_blank"
+                                >
+                                Analytics Mania, Path Exploration report in Google Analytics 4
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+        </div>
     </main>
 
 
@@ -214,5 +638,6 @@
     <!-- production: -->
     <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
     <script src="src/static/javascript/components/navbar.js"></script> -->
+    <script src="src/static/javascript/ga4.js"></script>
 </body>
 </html>
