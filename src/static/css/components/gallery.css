@@ -45,9 +45,9 @@
     align-items: center;   
 }
 
-.no-break {
+/* .no-break {
     white-space: nowrap;
-}
+} */
 
 @media screen and (max-width: 840px) {
     [class |= 'portfolio'] {

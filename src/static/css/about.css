@@ -1,6 +1,7 @@
 p {
     max-width: 100ch;
     line-height: 1.5;
+    padding: 0 1rem;
 }
 
 .sig {
@@ -9,7 +10,7 @@ p {
     align-items: center;
 }
 
-img {
+main img {
     border-radius: 50%;
     width: 175px;
 }
@@ -17,6 +18,7 @@ img {
 /* https://web.dev/speedy-css-tip-animated-gradient-text/ */
 /* background: image:gradient; position: start(left, top); / size:(width, height) */
 .quote {
+    text-align: center;
     --bg-size: 300%;
     background: linear-gradient(90deg, blue, red, blue) 0px 0px / var(--bg-size) 100%;
     color: transparent;
@@ -31,5 +33,27 @@ img {
 @keyframes quoteAnime {
     to {
         background-position: calc(var(--bg-size) * -1) 0;
+    }
+}
+
+
+@media screen and (max-width: 395px){
+    .quote {
+        font-size: 1.1rem;
+    }
+}
+@media screen and (max-width: 360px){
+    .quote {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 330px){
+    .quote {
+        font-size: .9rem;
+    }
+}
+@media screen and (max-width: 290px){
+    .quote {
+        font-size: .84rem;
     }
 }

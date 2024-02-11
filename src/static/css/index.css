@@ -1,6 +1,6 @@
-h1 {
+h1, #navbar {
     text-align: center;
-    animation: easeInTitle 1000ms ease-in forwards;
+    animation: easeInTitle 1000ms 190ms ease-in forwards;
     opacity: 0;
 }
 

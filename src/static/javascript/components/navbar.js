@@ -2,6 +2,9 @@ const navbar = Vue.createApp({
     template: 
     /* HTML */
     `
+        <a :href="pages.Gallery" target="_self">
+            <img :src="image.path" :alt="image.description">
+        </a>
         <ul>
             <li v-for="(hrefLink, page, index) in pages" :key="page">
                 <a :href="hrefLink" target="_self">
@@ -16,6 +19,10 @@ const navbar = Vue.createApp({
         const rootPath = window.location.hostname === "127.0.0.1" ? '': '/cnit132a';
 
         return {
+            image: {
+                path: 'src/favicon.ico',
+                description: 'Hypertext link to gallery page.'
+            },
             pages: {
                 'Gallery': `${rootPath}/src/index.html`,
                 'About': `${rootPath}/src/about.html`, 

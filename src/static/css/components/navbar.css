@@ -1,6 +1,20 @@
 #navbar {
     /* stabilizes layout from navbar injection. see common.css */
-    position: absolute;
+    /* position: absolute; */
+    /* --content-width: 251px; */
+    /* --gutter-width: 17px; */
+    /* --offset: var(--content-width) - (2 * var(--gutter-width)); */
+    /* left: calc(100vw - var(--offset)); */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    width: calc(100vw - var(--gutter-width));
+}
+
+#navbar img {
+    transform: scale(1.2);
 }
 
 #navbar ul {
@@ -9,15 +23,16 @@
 
     /* stabilizes layout from scrollbar (non)existence */
     /* #navbar{position:absolute} makes this rule moot. */
-    /* justify-content: left; */
+    /* justify-content: end; */
 
     font-size: 1.3rem;
     list-style-type: none;
-}
+    padding-inline-start:0;
 
+    --hover-theme:green;
+}
 #navbar li {
     position: relative;
-    --hover-theme:green;
 }
 #navbar li::after {
     content:"";
@@ -48,9 +63,14 @@
 }
 
 @media screen and (max-width: 600px) {
+    #navbar > a {
+        display: none;
+    }
     #navbar {
-        left: 50%;
-        transform: translateX(-60%);
+        justify-content: center;
+        /* left: 50%; */
+        /* transform: translateX(-60%); */
+        --gutter-width:0;
     }
     
 }
