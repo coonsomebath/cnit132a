@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'G-L4Q6HTS9Z9');
-    </script>
+    </script> -->
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +28,17 @@
             const baseElement = document.querySelector('base');
             baseElement.setAttribute('href', '/');
             vueBuild = '';
+        }else{
+            const gtagElement = document.createElement('script');
+            gtagElement.src = "https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9";
+            gtagElement.async = true;
+            document.head.appendChild(gtagElement);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-L4Q6HTS9Z9');
         }
         const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
     </script>
