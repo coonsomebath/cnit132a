@@ -13,9 +13,7 @@ body::before {
     position: absolute;
     height: calc(100% - 17px);
     width: 100%;
-    /* background-color:red; */
     background-image: var(--analytics-bg, url('/src/static/images/ga4/ga4-q20-810.png'));
-    /* background-image: url('/src/static/images/ga4/ga4-q20-810.png'); */
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -129,5 +127,3 @@ ul {
 img {
     max-width: 100%;
 }
-
-/* Funnel exploration */
