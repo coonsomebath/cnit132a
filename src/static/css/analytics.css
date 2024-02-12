@@ -11,7 +11,7 @@ body {
 body::before {
     content: '';
     position: absolute;
-    height: calc(100% - 17px);
+    height: calc(100% - var(--gutter-width, 17px));
     width: 100%;
     background-image: var(--analytics-bg, url('/src/static/images/ga4/ga4-q20-810.png'));
     background-repeat: no-repeat;
