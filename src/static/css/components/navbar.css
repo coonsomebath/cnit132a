@@ -1,33 +1,63 @@
+/* This implementation is absolutely Not maintainable. */
+
+header {
+    position: relative;
+}
+
 #navbar {
-    /* stabilizes layout from navbar injection. see common.css */
-    /* position: absolute; */
-    /* --content-width: 251px; */
-    /* --gutter-width: 17px; */
-    /* --offset: var(--content-width) - (2 * var(--gutter-width)); */
-    /* left: calc(100vw - var(--offset)); */
+    position: absolute;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    
+    --sidebar-padding: 2rem;
+    padding: var(--sidebar-padding);
+
+    /* scrollbar gutter method:
+        Still faces issue w/ layout shift from html injection.
+        use adjusted vw unit to constrain nav width; this reserves scrollbar real estate.
+    width: 100%;
+    */
+
+    /* Carve out scrollbar width => constrains nav width => stabilizes layout  */
     width: calc(100vw - var(--gutter-width, 17px));
+
+    /* --padding-inline-start-ul: initial; */
+}
+
+@keyframes easeInNav {
+    to {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+    }
+}
+
+/* top layer doesn't span 100vw; scrollbar gutter interferes; layout stabilization issue. */
+.stunt-double {
+    height: var(--header-height, 5.5rem);
+    width: 100vw;
+    animation: easeInNav 190ms 190ms ease-in forwards;
+}
+
+.nav-icons,
+.stunt-double,
+[class |= 'menu'] {
+    margin: 0;
 }
 
 #navbar img {
-    transform: scale(1.2);
+    transform: scale(1.4) translate(2px, 2px);
 }
 
 #navbar ul {
     display: flex;
     gap: 1rem;
-
-    /* stabilizes layout from scrollbar (non)existence */
-    /* #navbar{position:absolute} makes this rule moot. */
-    /* justify-content: end; */
-
-    font-size: 1.3rem;
+    margin: 0;
+   
     list-style-type: none;
-    padding-inline-start:0;
+    /* padding-inline-start: var(--padding-inline-start-ul); this was for text-center:hrefs, b4 sidebar implementation */
+    
+    font-size: 1.3rem;
 
     --hover-theme:green;
 }
@@ -62,15 +92,204 @@
     color: var(--hover-theme);
 }
 
+
+
+
 @media screen and (max-width: 600px) {
-    #navbar > a {
-        display: none;
+    #navbar{
+        /* TODO: when scrolling down, height:0, when scrolling up, nav reappears. */
+        position: fixed;
+
+        width: var(--sidebar-width, 100vw);
+        height: var(--header-height, 5.5rem);
+
+        background-color: rgba(255, 255, 250, 0.6);
+        backdrop-filter: blur(20px);
+
+        z-index: 1000;
     }
-    #navbar {
-        justify-content: center;
-        /* left: 50%; */
-        /* transform: translateX(-60%); */
-        --gutter-width:0;
+
+    /* stack href vertically */
+    #navbar ul {
+        display: var(--display-ul, flex);
+        flex-direction: column;
+        margin-top: 3rem;
     }
-    
+
+    /* trim trailing space so no animation:hover over extension */
+    #navbar li {
+        max-width: fit-content;
+    }
+
+    /* favicon <==> close:btn */
+    #navbar .nav-icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Construct hamburger button */
+    #navbar .menu-wrapper {
+        position: relative;
+
+        /* container for hamburger */
+        outline: 1px solid darkgray;
+        width: 3ch;
+        height: 1.5rem;
+        background-color: lightgrey;
+        border-radius: 2px;
+        
+
+        /* Hamburger btn */
+        /* --close-angle: 90|45; RENAME VARIABLE */
+        --bg-color: red;
+        --border: 1px solid red;
+        --border-rad: 2px;
+        --height: 14px;
+        --width: 3px;
+
+        /* position offset */
+        --position-offset: initial;
+    } 
+    #navbar .menu-wrapper:hover {
+        outline-width: 2px;
+        cursor: pointer;
+    }
+    #navbar .menu-1 {
+        position: absolute;
+        background-color: var(--bg-color);
+        width: var(--width);
+        height: var(--height);
+        left: var(--position-offset);
+        top: var(--position-offset-vertical);
+
+        transform: translate(calc(var(--translateX-val) + var(--translateY-offset)), calc(var(--translateY-val) * -1));
+
+        border: var(--border);
+        border-radius: var(--border-rad);
+
+        rotate: calc(var(--close-angle) * 1deg);
+        
+    }
+    #navbar .menu-2 {
+        position: absolute;
+        background-color: var(--bg-color);
+        width: var(--width);
+        height: var(--height);
+
+        visibility: var(--visibility-patty);
+
+        border: var(--border);
+        border-radius: var(--border-rad);
+
+        transform: translate(var(--translateY-offset), calc(var(--translateY-val) * -1));
+        rotate: calc(var(--close-angle) * 1deg);
+    }
+    #navbar .menu-3 {
+        position: absolute;
+        background-color: var(--bg-color);
+        width: var(--width);
+        height: var(--height);
+        left: var(--position-offset);
+        top: var(--position-offset-vertical);
+
+        transform: translate(calc(var(--translateX-val) + var(--translateY-offset) * -1), var(--translateY-val));
+        rotate: calc(var(--close-angle) * -1deg);
+        
+        border: var(--border);
+        border-radius: var(--border-rad);
+    }
+
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter
+        Doesn't quite solve my issue, doesn't "position absolute". Breaks visual flow. went with .stunt-double *
+    .macro-container{
+        overflow-y:auto;
+        scrollbar-gutter: stable both-edges;
+    } 
+    */
+
+    /* hamburger button state */
+    #navbar[aria-expanded = "false"]{
+        --sidebar-width: 100vw;
+
+        --display-ul: none; /* menu closed, don't show ul */
+        flex-direction: row; /* menu closed, show icons: favicon & menu */
+
+        /* positions favicon vs hamburger */
+        justify-content: space-between;
+        align-items: center;
+        /* --sidebar-padding: 1rem; */
+
+        /* width: initial; */
+
+        /* hamburger bun positioning */
+        --buns: 6px; /* one val for translateX's (defacto translateY) "big bang expansion" bc of + vs - rotate val */
+        --translateX-val: calc(var(--buns) * -1);
+        --translateY-val: 75%;
+        --translateY-offset: 5px;
+        /* background-color:transparent; #pseudo-bg-color: 1/2 */
+    }
+    /* use veneer to fill 100vw */
+    #navbar[aria-expanded = "false"] + .stunt-double{
+        z-index: -1;
+        position: absolute;
+        width: 100vw;
+
+        inset: 0;
+        /* background-color: red; #pseudo-bg-color: 2/2 */
+    }
+    #navbar[aria-expanded = "true"] {
+        height: 100vh;
+        right: 0;
+        --sidebar-width: 40ch;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, .1);
+
+        /* to inherit gap between href */
+        /* --display-ul: flex; no longer needed, i think. */
+
+        /* to position icon-div <==> ul */
+        flex-direction: column;
+
+        /* pages with and without scrollbar affects layout differently */
+        --has-scroll: 2rem calc(2rem - var(--gutter-width, 17px)) 2rem 2rem;
+        --sidebar-padding: var(--wedge-padding, var(--has-scroll));
+        /* --wedge-padding is set in sidebar.js on #navbar. */
+
+        /* positions ul */
+        justify-content: flex-start;
+        align-items: flex-start;
+        
+        /* --padding-inline-start-ul: 1rem; */
+    }
+
+    /* removes box shadow on full view page when sidebar is open */
+    #navbar[aria-expanded = "true"] + .stunt-double{
+        height: 0;
+     }
+
+     /* transformation between hamburger and X icon */
+    #navbar[aria-expanded = "false"] .menu-wrapper {
+        /* hamburger icon */
+
+        --close-angle: 90;
+        --visibility-patty: initial;
+    }
+
+    #navbar[aria-expanded = "true"] .menu-wrapper {
+        /* X icon */
+
+        --close-angle: 45;
+        /* horizontal */
+        --position-offset: 10px; 
+        --position-offset-vertical: 5px;
+        --visibility-patty: hidden;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+    #navbar{
+        --sidebar-width: 100vw;
+    }
 }

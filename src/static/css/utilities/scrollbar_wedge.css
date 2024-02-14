@@ -1,0 +1,36 @@
+/* 
+ * Layout stabilizer using a scrollbar wedge. 
+ * accompanying file: scrollbar_wedge.js
+ * Expected structure: body > (div.macro-container + div.gutter) 
+ */
+
+/* Structural setup */
+body {
+    display: flex; 
+    justify-content: space-between; 
+}
+
+/* squash flexbox gap */
+.macro-container {
+    width: 100%;
+}
+
+
+/* functional payload */
+.scrollbar-wedge {
+    height: 100vh;
+    width: var(--gutter-width, 17px);
+
+    /* visual development aid */
+    /* background-color: red;
+    outline: 1px solid; */
+}
+
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter
+    Didn't solve my issue, doesn't "position absolute". Breaks visual flow. went w/ superimposing elem; top layer transparent *
+.macro-container{
+    overflow-y:auto;
+    scrollbar-gutter: stable both-edges;
+} 
+*/

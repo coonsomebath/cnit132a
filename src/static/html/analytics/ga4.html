@@ -42,9 +42,9 @@
         const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
     </script>
 
-    <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
-    <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
-    <link rel="stylesheet" href="src/static/css/analytics.css" type="text/css">
+<link rel="stylesheet" href="src/static/css/common.css" type="text/css">
+<link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+<link rel="stylesheet" href="src/static/css/analytics.css" type="text/css">
 
     <script>
 
@@ -53,7 +53,8 @@
 </head>
 <body>
     <header>
-        <nav id="navbar"></nav>
+        <nav id="navbar" aria-expanded="false"></nav>
+        <div class="stunt-double"></div>
     </header>
     
 
@@ -666,6 +667,7 @@
     <!-- production: -->
     <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
     <script src="src/static/javascript/components/navbar.js"></script> -->
+    <script defer src="src/static/javascript/components/sidebar.js"></script>
     <script src="src/static/javascript/ga4.js"></script>
 </body>
 </html>

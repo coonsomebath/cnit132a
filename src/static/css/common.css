@@ -12,8 +12,10 @@ body {
 
 header {
     /* stabilizes layout from navbar injection. see navbar.css */
-    height: 4rem;
-    overflow: hidden;
+    --header-height: 5.5rem;
+    height: var(--header-height);
+    /* height: 4rem; */
+    /* overflow: hidden; */
 }
 
 main {

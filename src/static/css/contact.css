@@ -26,6 +26,14 @@ p {
         background-size: 50%;
     }
 }
+@media screen and (max-width: 600px) {
+    /* stabilizes hamburger position; correction due to absence of scroll bar. 
+        works in conjunction with navbar.css
+    */
+    #navbar[aria-expanded = "true"] {
+        padding-right: 2rem;
+    }
+}
 @media screen and (max-width: 450px) {
     body::before {
         background-size: 70%;
@@ -41,3 +49,7 @@ p {
         transform: translateY(90px);
     }
 }
+
+
+
+
