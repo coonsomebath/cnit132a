@@ -11,8 +11,8 @@ header {
     justify-content: space-between;
     align-items: center;
     
-    --sidebar-padding: 2rem;
-    padding: var(--sidebar-padding);
+    /* --sidebar-padding: 2rem; */
+    padding: var(--sidebar-padding, 2rem);
 
     /* scrollbar gutter method:
         Still faces issue w/ layout shift from html injection.
@@ -98,7 +98,7 @@ header {
 @media screen and (max-width: 600px) {
     #navbar{
         /* TODO: when scrolling down, height:0, when scrolling up, nav reappears. */
-        position: fixed;
+        /* position: fixed; */
 
         width: var(--sidebar-width, 100vw);
         height: var(--header-height, 5.5rem);
@@ -125,7 +125,8 @@ header {
     #navbar .nav-icons {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        /* commenting prevents slight jitter. figure out the underlying cause. */
+        /* align-items: center; */
         width: 100%;
     }
 
@@ -135,9 +136,9 @@ header {
 
         /* container for hamburger */
         outline: 1px solid darkgray;
+        background-color: lightgrey;
         width: 3ch;
         height: 1.5rem;
-        background-color: lightgrey;
         border-radius: 2px;
         
 
@@ -155,6 +156,9 @@ header {
     #navbar .menu-wrapper:hover {
         outline-width: 2px;
         cursor: pointer;
+    }
+    #navbar .menu-wrapper:active {
+        outline-width: 1px;
     }
     #navbar .menu-1 {
         position: absolute;
@@ -213,8 +217,10 @@ header {
     #navbar[aria-expanded = "false"]{
         --sidebar-width: 100vw;
 
-        --display-ul: none; /* menu closed, don't show ul */
-        flex-direction: row; /* menu closed, show icons: favicon & menu */
+        /* menu closed, don't show ul */
+        --display-ul: none;
+        /* menu closed, show icons: favicon & hamburger */
+        flex-direction: row;
 
         /* positions favicon vs hamburger */
         justify-content: space-between;
@@ -224,7 +230,7 @@ header {
         /* width: initial; */
 
         /* hamburger bun positioning */
-        --buns: 6px; /* one val for translateX's (defacto translateY) "big bang expansion" bc of + vs - rotate val */
+        --buns: 5px; /* one val for translateX's (defacto translateY) "big bang expansion" bc of + vs - rotate val */
         --translateX-val: calc(var(--buns) * -1);
         --translateY-val: 75%;
         --translateY-offset: 5px;
@@ -242,18 +248,28 @@ header {
     #navbar[aria-expanded = "true"] {
         height: 100vh;
         right: 0;
+
+        /* when u expand, wedge is gone. this leads to layout shift. fix */
+        opacity:.8;
         --sidebar-width: 40ch;
         box-shadow: -2px 0 10px rgba(0, 0, 0, .1);
+
+
+        /* width: var(--sidebar-width, 100vw); */
+        --sidebar-width: 40ch;
+        /* --sidebar-padding: 2rem 1rem 2rem 2rem; */
+        --sidebar-padding: 2rem 2rem 2rem 2rem;
 
         /* to inherit gap between href */
         /* --display-ul: flex; no longer needed, i think. */
 
         /* to position icon-div <==> ul */
         flex-direction: column;
-
+        /* --gutter-width:15px; Edge|chromium */
+        /* --gutter-width:17px; */
         /* pages with and without scrollbar affects layout differently */
-        --has-scroll: 2rem calc(2rem - var(--gutter-width, 17px)) 2rem 2rem;
-        --sidebar-padding: var(--wedge-padding, var(--has-scroll));
+        /* --has-scrollbar: 2rem calc(2rem - var(--gutter-width, 17px)) 2rem 2rem;
+        --sidebar-padding: var(--wedge-padding, var(--has-scrollbar)); */
         /* --wedge-padding is set in sidebar.js on #navbar. */
 
         /* positions ul */
@@ -261,6 +277,8 @@ header {
         align-items: flex-start;
         
         /* --padding-inline-start-ul: 1rem; */
+
+        
     }
 
     /* removes box shadow on full view page when sidebar is open */
@@ -284,6 +302,18 @@ header {
         --position-offset: 10px; 
         --position-offset-vertical: 5px;
         --visibility-patty: hidden;
+
+        /* THIS LOOKS LIKE THIS MAY BE THE SOLUTION... AUDIT CODE */
+        position: absolute;
+
+        /* w/ scroll */
+        /* right: 1rem; */
+        right: var(--right-padding);
+        /* right: calc(100vw - 2rem); */
+
+        /* no scroll */
+        /* right: 2rem; */
+
     }
 
 }

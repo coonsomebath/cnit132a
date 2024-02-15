@@ -7,6 +7,7 @@ body {
     padding: 0;
 }
 :root {
+    /* --gutter-width: calc(100vw -100%); */
     --gutter-width: 17px;
 }
 
@@ -33,4 +34,9 @@ p {
 
 .no-break {
     white-space: nowrap;
+}
+
+.macro-container {
+    /* this solves my layout shift from scrollbar-y toggling */
+    width: calc(100vw - var(--gutter-width, 17px));
 }

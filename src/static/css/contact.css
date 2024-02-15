@@ -20,6 +20,8 @@ body::before {
 }
 p {
     text-align: center;
+    margin: 1rem;
+    color: red;
 }
 @media screen and (max-width: 1080px) {
     body::before {

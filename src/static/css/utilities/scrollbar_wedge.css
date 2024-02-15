@@ -8,22 +8,56 @@
 body {
     display: flex; 
     justify-content: space-between; 
+
+    /* setting scrollbar-wedge's variables */
+    --scrollbar-position: absolute;
 }
 
 /* squash flexbox gap */
-.macro-container {
-    width: 100%;
-}
+/* width: 100%; */
+/* this solves my layout shift from scrollbar-y toggling */
+/* .macro-container {
+    width: calc(100vw - var(--gutter-width, 17px));
+} */
 
 
 /* functional payload */
 .scrollbar-wedge {
     height: 100vh;
-    width: var(--gutter-width, 17px);
+
+    /* leads to layout shift. */
+    /* 
+        aria-expanded=false:
+            vertical resize:
+                Uncommenting width eliminates layout shift.
+                Shift caused by presence or absence of scrollbar-y.
+                If all content is w/in 100vh, no scrollbar-y.
+                If not all content is visible w/in 100vh this leads to overflow-y and shows scrollbar-y.
+                The width works by reserving the same width as the scrollbar, in effect wedging it open,
+                    preventing its collapse and thus a layout shift on main content.
+                The hamburger menu's position is also stable as desired.
+
+
+        aria-expanded=true:
+            vertical resize:
+                This is leading to a layout shift bc there is no injection of the scrollbar-wedge,
+                    given overflow-y state.
+        
+        */
+
+    width: var(--gutter-width);
+    /* width: var(--gutter-width, 17px); */
+    /* width: 15px; */
+    /* --scrollbar-position:relative;
+    position: var(--scrollbar-position);
+    right: 0; */
+    
+    /* z-index: -1; */
 
     /* visual development aid */
-    /* background-color: red;
-    outline: 1px solid; */
+    background-color: red;
+    outline: 1px solid;
+
 }
 
 
