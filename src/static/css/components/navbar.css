@@ -21,9 +21,15 @@ header {
     */
 
     /* Carve out scrollbar width => constrains nav width => stabilizes layout  */
-    width: calc(100vw - var(--gutter-width, 17px));
+    /* width: calc(100vw - var(--gutter-width, 17px)); bad idea! too many issues. */
+
+    width: 100%;
+    
+    /* box-shadow: -2px 0 10px rgba(0, 0, 0, .1); */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .1);
 
     /* --padding-inline-start-ul: initial; */
+    --right-padding: 2rem;
 }
 
 @keyframes easeInNav {
@@ -96,11 +102,17 @@ header {
 
 
 @media screen and (max-width: 600px) {
+    .macro-container {
+        width: 90% !important;
+    }
+
     #navbar{
         /* TODO: when scrolling down, height:0, when scrolling up, nav reappears. */
+        /* "fixed" prevents "flooding" when scroll > 100vh, but issue w/ right padding again... */
         /* position: fixed; */
 
-        width: var(--sidebar-width, 100vw);
+        /* width: var(--sidebar-width, 100vw); */
+        width: 100%;
         height: var(--header-height, 5.5rem);
 
         background-color: rgba(255, 255, 250, 0.6);
@@ -213,9 +225,22 @@ header {
     } 
     */
 
+    @keyframes animateSidebar {
+        from {
+            width: 0;
+            transform: scaleX(0);
+            opacity: 0;
+        }
+        to {
+            width: 100%;
+            transform: scaleX(1);
+            opacity: 1;
+        }
+    }
     /* hamburger button state */
     #navbar[aria-expanded = "false"]{
-        --sidebar-width: 100vw;
+        /* --sidebar-width: 100vw; */
+        /* --sidebar-width: 100%; */
 
         /* menu closed, don't show ul */
         --display-ul: none;
@@ -235,6 +260,7 @@ header {
         --translateY-val: 75%;
         --translateY-offset: 5px;
         /* background-color:transparent; #pseudo-bg-color: 1/2 */
+        transform-origin: left;
     }
     /* use veneer to fill 100vw */
     #navbar[aria-expanded = "false"] + .stunt-double{
@@ -246,19 +272,20 @@ header {
         /* background-color: red; #pseudo-bg-color: 2/2 */
     }
     #navbar[aria-expanded = "true"] {
-        height: 100vh;
+        position: absolute;
+        /* height: 100vh; */
+        height: fit-content;
         right: 0;
+      
 
-        /* when u expand, wedge is gone. this leads to layout shift. fix */
-        opacity:.8;
-        --sidebar-width: 40ch;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, .1);
+        /* box-shadow: -2px 0 10px rgba(0, 0, 0, .1); */
 
 
+        width: 70%;
         /* width: var(--sidebar-width, 100vw); */
-        --sidebar-width: 40ch;
+        /* --sidebar-width: 40ch; */
         /* --sidebar-padding: 2rem 1rem 2rem 2rem; */
-        --sidebar-padding: 2rem 2rem 2rem 2rem;
+        /* --sidebar-padding: 2rem 2rem 2rem 2rem; */
 
         /* to inherit gap between href */
         /* --display-ul: flex; no longer needed, i think. */
@@ -278,7 +305,10 @@ header {
         
         /* --padding-inline-start-ul: 1rem; */
 
-        
+       
+        overflow: hidden;
+        transform-origin: right;
+        animation: animateSidebar 500ms ease-in-out forwards;
     }
 
     /* removes box shadow on full view page when sidebar is open */
@@ -304,11 +334,11 @@ header {
         --visibility-patty: hidden;
 
         /* THIS LOOKS LIKE THIS MAY BE THE SOLUTION... AUDIT CODE */
-        position: absolute;
+        /* position: absolute; */
 
         /* w/ scroll */
         /* right: 1rem; */
-        right: var(--right-padding);
+        /* right: var(--right-padding); */
         /* right: calc(100vw - 2rem); */
 
         /* no scroll */

@@ -38,5 +38,10 @@ p {
 
 .macro-container {
     /* this solves my layout shift from scrollbar-y toggling */
-    width: calc(100vw - var(--gutter-width, 17px));
+    /* width: calc(100vw - var(--gutter-width, 17px)); */
+
+
+    /* Build in margins around a centralized container to avoid dealing with layout shifts! */
+    width: 67%;
+    margin: auto;
 }

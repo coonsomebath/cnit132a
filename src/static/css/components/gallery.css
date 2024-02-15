@@ -1,6 +1,6 @@
 [class |= 'portfolio'] {
     display: flex;
-    width: 50%;
+    width: 100%;
     min-width: 200px;
 
     border-radius: 5px;
