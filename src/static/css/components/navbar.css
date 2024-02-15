@@ -1,4 +1,3 @@
-/* This implementation is absolutely Not maintainable. */
 
 header {
     position: relative;
@@ -11,24 +10,12 @@ header {
     justify-content: space-between;
     align-items: center;
     
-    /* --sidebar-padding: 2rem; */
     padding: var(--sidebar-padding, 2rem);
-
-    /* scrollbar gutter method:
-        Still faces issue w/ layout shift from html injection.
-        use adjusted vw unit to constrain nav width; this reserves scrollbar real estate.
-    width: 100%;
-    */
-
-    /* Carve out scrollbar width => constrains nav width => stabilizes layout  */
-    /* width: calc(100vw - var(--gutter-width, 17px)); bad idea! too many issues. */
 
     width: 100%;
     
-    /* box-shadow: -2px 0 10px rgba(0, 0, 0, .1); */
     box-shadow: 0px 5px 10px rgba(0, 0, 0, .1);
 
-    /* --padding-inline-start-ul: initial; */
     --right-padding: 2rem;
 }
 
@@ -36,13 +23,6 @@ header {
     to {
         box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
     }
-}
-
-/* top layer doesn't span 100vw; scrollbar gutter interferes; layout stabilization issue. */
-.stunt-double {
-    height: var(--header-height, 5.5rem);
-    width: 100vw;
-    animation: easeInNav 190ms 190ms ease-in forwards;
 }
 
 .nav-icons,
@@ -61,7 +41,6 @@ header {
     margin: 0;
    
     list-style-type: none;
-    /* padding-inline-start: var(--padding-inline-start-ul); this was for text-center:hrefs, b4 sidebar implementation */
     
     font-size: 1.3rem;
 
@@ -103,15 +82,13 @@ header {
 
 @media screen and (max-width: 600px) {
     .macro-container {
+        /* why do I need the important flag? what is using a higher specificity to hinder? */
         width: 90% !important;
     }
 
     #navbar{
         /* TODO: when scrolling down, height:0, when scrolling up, nav reappears. */
-        /* "fixed" prevents "flooding" when scroll > 100vh, but issue w/ right padding again... */
-        /* position: fixed; */
 
-        /* width: var(--sidebar-width, 100vw); */
         width: 100%;
         height: var(--header-height, 5.5rem);
 
@@ -137,7 +114,6 @@ header {
     #navbar .nav-icons {
         display: flex;
         justify-content: space-between;
-        /* commenting prevents slight jitter. figure out the underlying cause. */
         /* align-items: center; */
         width: 100%;
     }
@@ -216,15 +192,9 @@ header {
         border: var(--border);
         border-radius: var(--border-rad);
     }
+    /* END of: Construct hamburger button */
 
-    /* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter
-        Doesn't quite solve my issue, doesn't "position absolute". Breaks visual flow. went with .stunt-double *
-    .macro-container{
-        overflow-y:auto;
-        scrollbar-gutter: stable both-edges;
-    } 
-    */
-
+    
     @keyframes animateSidebar {
         from {
             width: 0;
@@ -237,11 +207,9 @@ header {
             opacity: 1;
         }
     }
+
     /* hamburger button state */
     #navbar[aria-expanded = "false"]{
-        /* --sidebar-width: 100vw; */
-        /* --sidebar-width: 100%; */
-
         /* menu closed, don't show ul */
         --display-ul: none;
         /* menu closed, show icons: favicon & hamburger */
@@ -250,106 +218,46 @@ header {
         /* positions favicon vs hamburger */
         justify-content: space-between;
         align-items: center;
-        /* --sidebar-padding: 1rem; */
 
-        /* width: initial; */
-
-        /* hamburger bun positioning */
+         /* hamburger bun positioning */
         --buns: 5px; /* one val for translateX's (defacto translateY) "big bang expansion" bc of + vs - rotate val */
         --translateX-val: calc(var(--buns) * -1);
         --translateY-val: 75%;
         --translateY-offset: 5px;
-        /* background-color:transparent; #pseudo-bg-color: 1/2 */
-        transform-origin: left;
     }
-    /* use veneer to fill 100vw */
-    #navbar[aria-expanded = "false"] + .stunt-double{
-        z-index: -1;
-        position: absolute;
-        width: 100vw;
 
-        inset: 0;
-        /* background-color: red; #pseudo-bg-color: 2/2 */
-    }
     #navbar[aria-expanded = "true"] {
         position: absolute;
-        /* height: 100vh; */
         height: fit-content;
         right: 0;
       
-
-        /* box-shadow: -2px 0 10px rgba(0, 0, 0, .1); */
-
-
         width: 70%;
-        /* width: var(--sidebar-width, 100vw); */
-        /* --sidebar-width: 40ch; */
-        /* --sidebar-padding: 2rem 1rem 2rem 2rem; */
-        /* --sidebar-padding: 2rem 2rem 2rem 2rem; */
-
-        /* to inherit gap between href */
-        /* --display-ul: flex; no longer needed, i think. */
 
         /* to position icon-div <==> ul */
         flex-direction: column;
-        /* --gutter-width:15px; Edge|chromium */
-        /* --gutter-width:17px; */
-        /* pages with and without scrollbar affects layout differently */
-        /* --has-scrollbar: 2rem calc(2rem - var(--gutter-width, 17px)) 2rem 2rem;
-        --sidebar-padding: var(--wedge-padding, var(--has-scrollbar)); */
-        /* --wedge-padding is set in sidebar.js on #navbar. */
 
         /* positions ul */
         justify-content: flex-start;
         align-items: flex-start;
-        
-        /* --padding-inline-start-ul: 1rem; */
-
-       
+               
         overflow: hidden;
         transform-origin: right;
         animation: animateSidebar 500ms ease-in-out forwards;
     }
 
-    /* removes box shadow on full view page when sidebar is open */
-    #navbar[aria-expanded = "true"] + .stunt-double{
-        height: 0;
-     }
-
      /* transformation between hamburger and X icon */
     #navbar[aria-expanded = "false"] .menu-wrapper {
         /* hamburger icon */
-
         --close-angle: 90;
         --visibility-patty: initial;
     }
 
     #navbar[aria-expanded = "true"] .menu-wrapper {
         /* X icon */
-
         --close-angle: 45;
         /* horizontal */
         --position-offset: 10px; 
         --position-offset-vertical: 5px;
         --visibility-patty: hidden;
-
-        /* THIS LOOKS LIKE THIS MAY BE THE SOLUTION... AUDIT CODE */
-        /* position: absolute; */
-
-        /* w/ scroll */
-        /* right: 1rem; */
-        /* right: var(--right-padding); */
-        /* right: calc(100vw - 2rem); */
-
-        /* no scroll */
-        /* right: 2rem; */
-
-    }
-
-}
-
-@media screen and (max-width: 375px) {
-    #navbar{
-        --sidebar-width: 100vw;
     }
 }

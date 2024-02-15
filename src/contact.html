@@ -46,7 +46,6 @@
     <meta name="description" content="Contact the author of this website.">
 
     <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
-    <link rel="stylesheet" href="src/static/css/utilities/scrollbar_wedge.css" type="text/css">
     <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
     <link rel="stylesheet" href="src/static/css/contact.css" type="text/css">
 </head>
@@ -54,7 +53,6 @@
     <div class="macro-container">
         <header>
             <nav id="navbar" aria-expanded="false"></nav>
-            <!-- <div class="stunt-double"></div> -->
         </header>
 
         <main>
@@ -76,7 +74,6 @@
 
 
     </div>
-    <!-- <div class="gutter"></div> -->
 
     <!-- development: -->
     <script>
@@ -90,39 +87,14 @@
             const scriptElemNavbar = document.createElement('script');
             scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
             document.body.appendChild(scriptElemNavbar);
-
-            // const scriptElemSidebar = document.createElement('script');
-            // scriptElemSidebar.src = 'src/static/javascript/components/sidebar.js';
-            // document.body.appendChild(scriptElemSidebar);
         };
 
         document.body.appendChild(scriptElement);
     </script>  
+
     <!-- production: -->
     <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
         <script src="src/static/javascript/components/navbar.js"></script> -->
     <script defer src="src/static/javascript/components/sidebar.js"></script>
-    <script defer src="src/static/javascript/utilities/scrollbar_wedge.js"></script>
-    <!-- <script>
-        function hasVerticalScrollbar (element){
-            // "is content height > 100vh"
-            const isOverflow = element.scrollHeight > element.clientHeight;
-            return isOverflow
-        }
-        // window.addEventListener('resize', ()=>{
-        //     console.log('fired')
-        //     if(hasVerticalScrollbar(document.documentElement)){
-        //     document.querySelector('.gutter').classList.add('gutter-stabilizer')
-        // }
-        // })
-
-        window.document.body.onclick = function(){
-            console.log('fired')
-            if(!hasVerticalScrollbar(document.documentElement)){
-            document.querySelector('.gutter').classList.add('gutter-stabilizer')
-            }
-        }
-
-    </script> -->
 </body>
 </html>
