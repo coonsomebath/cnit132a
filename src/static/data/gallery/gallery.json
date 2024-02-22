@@ -8,7 +8,7 @@
     },
     "performance_organization": {
         "title": "Performance & Organization",
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "description": "Images are a wonderful addition to a webpage and can engage the user. However, unoptimized images can negatively impact user experience by consuming excess data and download time. Optimizing images will provide a more pleasant user experience as well as increase the website's Google SEO ranking. A better ranking will increase the probability of driving organic traffic to the website. Anything that a developer can do to decrease the file size of assets being transferred over the network will decrease download time.",
         "imagePath": "src/static/images/gallery/performance_200.jpg",
         "imageDesc": "Image of Performance Written on Paper.",
         "hrefLink": "src/static/html/performance/optimization.html"
