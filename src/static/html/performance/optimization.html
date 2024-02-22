@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-L4Q6HTS9Z9');
+    </script> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="canonical" href="https://coonsomebath.github.io/cnit132a/src/"> -->
+    <base href="/cnit132a/src">
+    <script>
+        /* Development: this swapping is causing console.errors, but not a problem. strictly a development output.
+        * commenting out script tag and uncommenting <base href="/"> fixes it, but you can't
+        * keep toggling it between views (local vs gh.Pages) for every webpage and path coded!
+        */
+       let vueBuild = '.prod';
+       if(window.location.hostname === '127.0.0.1'){
+            const baseElement = document.querySelector('base');
+            baseElement.setAttribute('href', '/');
+            vueBuild = '';
+        }else{
+            const gtagElement = document.createElement('script');
+            gtagElement.src = "https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9";
+            gtagElement.async = true;
+            document.head.appendChild(gtagElement);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-L4Q6HTS9Z9');
+        }
+        const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
+    </script>
+
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
+    <title>Optimization</title>
+    <meta name="description" content="CNIT 132A: Demonstration of image and file optimization to improve load time.">
+
+    <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/performance.css" type="text/css">
+</head>
+<body>
+    <div class="macro-container">
+        <header>
+            <nav id="navbar" aria-expanded="false"></nav>
+        </header>
+
+        <main>
+            <h1>
+                Performance & Organization
+                <span class="subheading subheading-center subheading-md">Image Optimization</span>
+            </h1>
+
+            <section class="table-div">
+                <h2>Summary of various optimization methods</h2>
+
+                <table>
+                    <caption>Optimizing images by modifying width, quality, and|or format</caption>
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Width</th>
+                            <th>Quality</th>
+                            <th>File size</th>
+                            <th>Fs Savings</th>
+                            <th>Download time</th>
+                            <th>Dt Savings</th>
+                            <th>File type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <a href="src/static/html/performance/optimization.html#fig1">
+                                    None
+                                </a>
+                            </th>
+                            <td>3,264 px</td>
+                            <td>100%</td>
+                            <td>1,865 KB</td>
+                            <td>0%</td>
+                            <td>2.48s</td>
+                            <td>0%</td>
+                            <td>jpeg</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a href="src/static/html/performance/optimization.html#fig8">
+                                    pillow
+                                </a>
+                            </th>
+                            <td>560 px</td>
+                            <td>100%</td>
+                            <td>290 KB</td>
+                            <td>-91.1%</td>
+                            <td>420ms</td>
+                            <td>-83%</td>
+                            <td>png</td>
+                        </tr>
+                        <tr class="txt-green">
+                            <th>
+                                <a href="src/static/html/performance/optimization.html#fig9">
+                                    squoosh.com
+                                </a>
+                            </th>
+                            <td>560 px</td>
+                            <td>100%</td>
+                            <td>208 KB</td>
+                            <td>-93.6%</td>
+                            <td>273ms</td>
+                            <td>-89%</td>
+                            <td>png</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a href="src/static/html/performance/optimization.html#fig10">
+                                    iloveimg.com
+                                </a>
+                            </th>
+                            <td>560 px</td>
+                            <td>Unspecified</td>
+                            <td>43 KB</td>
+                            <td>-98.7%</td>
+                            <td>53ms</td>
+                            <td>-98%</td>
+                            <td>jpeg</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a href="src/static/html/performance/optimization.html#fig11">
+                                    jpeg-optimizer.com
+                                </a>
+                            </th>
+                            <td>560 px</td>
+                            <td>65%</td>
+                            <td>21 KB</td>
+                            <td>-99.36%</td>
+                            <td>24ms</td>
+                            <td>-99.03%</td>
+                            <td>jpeg</td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a href="src/static/html/performance/optimization.html#fig12">
+                                    pillow
+                                </a>
+                            </th>
+                            <td>560 px</td>
+                            <td>65%</td>
+                            <td>19 KB</td>
+                            <td>-99.42%</td>
+                            <td>20ms</td>
+                            <td>-99.23%</td>
+                            <td>jpeg</td>
+                        </tr>
+                        <tr class="txt-green">
+                            <th>
+                                <a href="src/static/html/performance/optimization.html#fig13">
+                                    squoosh.com
+                                </a>
+                            </th>
+                            <td>560 px</td>
+                            <td>65%</td>
+                            <td>14 KB</td>
+                            <td>-99.57%</td>
+                            <td>6ms</td>
+                            <td>-99.76%</td>
+                            <td>jpeg</td>
+                        </tr>
+                        <tr class="txt-green">
+                            <th>
+                                <a href="src/static/html/performance/optimization.html#fig15">
+                                    pillow
+                                </a>
+                            </th>
+                            <td>560 px</td>
+                            <td>65%</td>
+                            <td>11 KB</td>
+                            <td>-99.66%</td>
+                            <td>2ms</td>
+                            <td>-99.92%</td>
+                            <td>webp</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>An image is an image, right?</h2>
+
+                <p>
+                    &quot;A picture is worth a thousand words.&quot;
+                    This is a common saying that that pays homage to the power of images.
+                    When you find yourself in a waiting room with a table full of magazines,
+                    I would wager that most people would skim through the magazine and focus
+                    mainly on the images and headlines. Images, at a glance, have the power to
+                    engage our imagination and conjure emotions. If an average person opens
+                    up a book and gets hit with a wall of text, that person will probably
+                    put that book down. 
+                </p>
+                <p>
+                    A webpage is no exception. When it loads, one&apos;s eyes naturally darts
+                    around the viewport to take in the images and possibly the headlines.
+                    People are impatient and want things fast and they want it now. With
+                    so many options available on the internet, it is hard to hold their
+                    attention. When a webpage loads, you expect the webpage to work flawlessly.
+                    You do not want to see partial images in the process of downloading. And you
+                    will probably get really annoyed if you started to read some text and
+                    suddenly the layout shifts on you causing you to lose sight of the words 
+                    you were reading. 
+                </p>
+                <p>
+                    Image optimization helps to mitigate these issues. The problem with images
+                    is that there are so many variations and each with their own use case. In 
+                    addition, technology is evolving so fast. We now have very powerful cameras 
+                    in our pockets that we can weld in a moment's time. And these cameras are 
+                    capable of capturing ultra high resolution images. In the quest to 
+                    monopolize the market, companies are constantly trying to sell more powerful 
+                    image capabilities to consumers with no end in sight. How much resolution 
+                    do you need really?  
+                </p>
+            </section>
+
+            <section>
+                <h2>Can of worms</h2>
+
+                <p>
+                    Ultra high resolution images look great, but their file size are huge. 
+                    This is not a problem if you are viewing these images on your local
+                    device because you are on a wired connection. Here the wires are the 
+                    circuits in your hardware, where there is negligible resistance. 
+                    This is opposed to say a mobile device that receives data through
+                    the air via cellular towers.
+                </p>
+                <p>
+                    "Think mobile first" is a mantra that technologist like to utter. This
+                    is for good reason. How many times do you touch your mobile device in
+                    a day in comparison to a laptop or desktop? The statistic is clear, it
+                    is a lot. And in some parts of the world, people are leap frogging over 
+                    &quot;traditional phones&quot; and graduating directly to mobile devices.
+                    However, their infrastructure may not be as modern as in a first world
+                    market. Rates of transmission will be different on a 2G, 3G, 4G, or 5G
+                    infrastructure. In addition, not all users have generous data plans and
+                    may have to pay a premium in terms of money and or data throttling. When
+                    you think mobile first, you become cognizant of some of these issues and 
+                    you construct your webpage in a way to alleviate some of the drag.
+                </p>
+            </section>
+
+            <section>
+                <h2>What can I do?</h2>
+
+                <p>
+                    An easy way to unclog a data bottle neck is to optimize the images on 
+                    your website. Firstly, let&apos;s address the layout shift issue. 
+                    When a browser loads a html webpage, it will read the document top 
+                    to bottom and render or download the assets it needs to render the page.
+                    If you do not set the width and height attributes of an image tag, the
+                    browser will not know how much room to reserve for the image and so it 
+                    does not allocate any real estate for it. When the image finishes
+                    downloading, the browser will then know the size and will then insert
+                    the image into its container; this will cause a reflow and thus the
+                    layout shift issue. Specifying the width and height of an image tag
+                    will reserve the appropriate dimension and prevent the layout shift
+                    from occurring and thus improving the user&apos;s experience. 
+                </p>
+                <p>
+                    When you specify the width and height of an image tag, you know the
+                    maximum dimensions of the image that you need. With this knowledge,
+                    you can now adjust the width and height of your original image to
+                    match the image container. Just setting the width and height of the
+                    image tag container does not modify the image&apos;s innate dimension,
+                    as shown in Fig 1, the original image. In Fig 4, 
+                    <a href="https://pypi.org/project/pillow/" rel="nofollow noopener noreferrer" target="_blank">Pillow</a>
+                    was used to reduce the image&apos;s width to match the container width, 560px.
+                    This one adjustment reduced the size of the file by 96%. If for some reason
+                    you did not want to reduce the image&apos;s size, you can opt to reduce
+                    the image&apos;s quality. In Fig 3, 
+                    <a href="https://imagecompressor.com/" rel="noopener noreferrer nofollow" target="_blank">Optimizilla</a>
+                    was used to reduce the quality to 65% of the original. This led to a 92% reduction
+                    in the file&apos;s size. However, using 
+                    <a href="https://squoosh.app/editor" rel="nofollow noopener noreferrer" target="_blank">Squoosh</a>
+                    to adjust both the dimension and quality, the file size was reduced by 99.57% of the original size, as
+                    shown in Fig 13. This file size reduction means that less data needs to be transferred over the
+                    network, which reduced the download time by 99.76% to just 6ms for the jpeg file, as opposed to
+                    2,480ms for the unoptimized image.                   
+                </p>
+                <p>
+                    In addition to adjusting dimension and quality, you can also change the compression algorithm or file
+                    format type. Thus far, we have been talking about jpeg files. We can also use the 
+                    <a href="https://en.wikipedia.org/wiki/PNG" rel="noopener noreferrer nofollow" target="_blank">png</a> 
+                    and 
+                    <a  href="https://en.wikipedia.org/wiki/WebP" rel="noopener noreferrer nofollow" target="_blank">webp</a> 
+                    formats/algorithms.
+                </p>
+                <p>
+                    Portable network graphics(png) is lossless technology. It means that you can compress the image without
+                    losing data and thus quality, unlike the jpeg technology. Using Squoosh, a 93.6% reduction in file 
+                    size was possible. This was not the most optimal solution, but if you need to retain 100% quality,
+                    png is a reasonable option.
+                </p>
+                <p>
+                    Webp has 97.06% support among global browsers, as compared to the 98.56% that is enjoyed by the 
+                    png format. It supports both lossy and lossless compression and was designed to be a replacement
+                    for jpeg, png, and gif file formats. Of the optimization methods used for testing, webp was by far
+                    the most optimal. It achieved a 99.66% reduction in file size and a 99.92% reduction in
+                    download time, as shown in the table or Fig 15. If you are targeting modern browsers, webp is the 
+                    way to go. You can always add a fallback to another file format using the srcset attribute or 
+                    the picture element if you need wider browser support.
+                </p>
+
+                <p>
+                    In addition to the above optimizations, you can also add the loading=lazy attribute and value onto the
+                    img tag. This will enable a just-in-time downloading scheme to prevent premature downloading of images
+                    when they are not in view.
+                </p>
+
+                <p>
+                    With these optimizations, you can increase the efficiency of your website. Your webpage will download
+                    faster. It will be ranked higher under Google's SEO criteria. It will consume less resources, in terms 
+                    of money, energy, and time.
+                </p>
+            </section>
+
+            <section class="figure-div">
+                <h2 id="fig1">Unoptimized Image</h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate.jpeg"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 1: Unoptimized image constrained by width:560 and height:315 attributes on img tag.
+                        <br>
+                        Format: jpeg
+                        <br>
+                        Dimension: 3264 X 2448
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 1,865 KB
+                        <br>
+                        Quality: 100%
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="figure-div">
+                <h2>
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in quality using pillow</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_q65.jpeg"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 2: Quality reduced to 65% of original.
+                        <br>
+                        Format: jpeg
+                        <br>
+                        Dimension: 3264 X 2448
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 493 KB
+                        <br>
+                        Quality: 65%
+                        <br>
+                        Optimization tool: <a href="https://pypi.org/project/pillow/" rel="nofollow noopener noreferrer" target="_blank">pillow</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="figure-div">
+                <h2>
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in quality using Optimizilla</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_optimizilla_q65.jpeg"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 3: Quality reduced to 65% of original.
+                        <br>
+                        Format: jpeg
+                        <br>
+                        Dimension: 3264 X 2448
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 266 KB
+                        <br>
+                        Quality: 65%
+                        <br>
+                        Optimization tool: <a href="https://imagecompressor.com/" rel="noopener noreferrer nofollow" target="_blank">Optimizilla</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="figure-div">
+                <h2>
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension using pillow</span>
+                    <span class="subheading-sm">Compression algorithm | format: jpeg</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_w560.jpeg"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 4: Width reduced to 560px.
+                        <br>
+                        Format: jpeg
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 143 KB
+                        <br>
+                        Quality: 100%
+                        <br>
+                        Optimization tool: <a href="https://pypi.org/project/pillow/" rel="nofollow noopener noreferrer" target="_blank">pillow</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+
+            <!-- png format -->
+            <section class="figure-div">
+                <h2>
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension using Squoosh.com</span>
+                    <span class="subheading-sm">format: png</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_squoosh_w560_color_full.png"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 5: Width reduced to 560px with full png color palette.
+                        <br>
+                        Format: png
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 346 KB
+                        <br>
+                        Quality: 100% because png is a lossless algorithm.
+                        <br>
+                        Optimization tool: <a href="https://squoosh.app/editor" rel="nofollow noopener noreferrer" target="_blank">Squoosh</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="figure-div">
+                <h2>
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension using pillow</span>
+                    <span class="subheading-sm">Compression algorithm | format: png</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_w560.png"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 6: Width reduced to 560px.
+                        <br>
+                        Format: png
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 295 KB
+                        <br>
+                        Quality: 100%
+                        <br>
+                        Optimization tool: <a href="https://pypi.org/project/pillow/" rel="nofollow noopener noreferrer" target="_blank">pillow</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+
+            <section class="figure-div">
+                <h2>
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension and &quot;quality&quot;</span>
+                    <!-- because the previous elem is a block elem, no need to class it as block again.
+                        trade off: 
+                            * save bytes by not including class name.
+                            * opens element to maintainability bug if previous elem is no longer a block elem
+                    -->
+                    <span class="subheading-sm">Compression algorithm | format: png</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_w560_q65.png"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 7: Width reduced to 560px and quality parameter set to 65% of original.
+                        <br>
+                        Format: png
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 295 KB
+                        <br>
+                        Quality: 
+                        <span class="txt-strike">65%</span>
+                        100% because png is a lossless algorithm.
+                        <br>
+                        Optimization tool: <a href="https://pypi.org/project/pillow/" rel="nofollow noopener noreferrer" target="_blank">pillow</a>
+                    </figcaption>
+                </figure>
+            </section>
+            
+            <section class="figure-div">
+                <h2 id="fig8">
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension</span>
+                    <span class="subheading-sm">Compression algorithm | format: png</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_w560_opt.png"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 8: Width reduced to 560px and optimize parameter set to True.
+                        <br>
+                        Format: png
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 290 KB
+                        <br>
+                        Quality: 100% because png is a lossless algorithm.
+                        <br>
+                        Optimization tool: <a href="https://pypi.org/project/pillow/" rel="nofollow noopener noreferrer" target="_blank">pillow</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="figure-div">
+                <h2 id="fig9">
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension using Squoosh.com</span>
+                    <span class="subheading-sm">format: png</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_squoosh_w560_color_256.png"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 9: Width reduced to 560px with reduced png color palette (256).
+                        <br>
+                        Format: png
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 208 KB
+                        <br>
+                        Quality: 100% because png is a lossless algorithm.
+                        <br>
+                        Optimization tool: <a href="https://squoosh.app/editor" rel="nofollow noopener noreferrer" target="_blank">Squoosh</a>
+                    </figcaption>
+                </figure>
+            </section>
+            <!-- end png format -->
+
+            
+            <section class="figure-div">
+                <h2 id="fig10">
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension and quality using iloveimg.com</span>
+                    <span class="subheading-sm">Compression algorithm | format: jpeg</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_i_heart_img_w560_q_.jpeg"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 10: Width reduced to 560px and quality determined by iloveimg.com.
+                        <br>
+                        Format: jpeg
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 43 KB
+                        <br>
+                        Quality: unspecified
+                        <br>
+                        Optimization tool: <a href="https://www.iloveimg.com/" rel="nofollow noopener noreferrer" target="_blank">iloveimg.com</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="figure-div">
+                <h2 id="fig11">
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension and quality using jpeg-optimizer.com</span>
+                    <span class="subheading-sm">format: jpeg</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_jpeg-optimizer_w560_q65.jpeg"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 11: Width reduced to 560px and quality to 65% of original.
+                        <br>
+                        Format: jpeg
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 21 KB
+                        <br>
+                        Quality: 65%
+                        <br>
+                        Optimization tool: <a href="https://jpeg-optimizer.com/" rel="nofollow noopener noreferrer" target="_blank">jpeg-optimizer.com</a>
+                    </figcaption>
+                </figure>
+            </section>
+            
+            <section class="figure-div">
+                <h2 id="fig12">
+                    Optimized Image: 
+                    <spam class="subheading subheading-sm">Reduction in dimension and quality using pillow</spam>
+                    <span class="subheading-sm">format: jpeg</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_w560_q65.jpeg"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 12: Width reduced to 560px and quality to 65% of original.
+                        <br>
+                        Format: jpeg
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 19 KB
+                        <br>
+                        Quality: 65%
+                        <br>
+                        Optimization tool: <a href="https://pypi.org/project/pillow/" rel="nofollow noopener noreferrer" target="_blank">pillow</a>
+                    </figcaption>
+                </figure>
+            </section>
+            
+            <section class="figure-div">
+                <h2 id="fig13">
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension and quality using Squoosh.com</span>
+                    <span class="subheading-sm">format: jpeg</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_squoosh_w560_q65.jpg"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 13: Width reduced to 560px and quality to 65% of original.
+                        <br>
+                        Format: jpeg
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 14 KB
+                        <br>
+                        Quality: 65%
+                        <br>
+                        Optimization tool: <a href="https://squoosh.app/editor" rel="nofollow noopener noreferrer" target="_blank">Squoosh</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="figure-div">
+                <h2>
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension and quality using Squoosh.com</span>
+                    <span class="subheading-sm">Compression algorithm | format: webp</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_squoosh_w560_q65.webp"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 14: Width reduced to 560px and quality to 65% of original.
+                        <br>
+                        Format: webp
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 11.2 KB
+                        <br>
+                        Quality: 65%
+                        <br>
+                        Optimization tool: <a href="https://squoosh.app/editor" rel="nofollow noopener noreferrer" target="_blank">Squoosh</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section class="figure-div">
+                <h2 id="fig15">
+                    Optimized Image: 
+                    <span class="subheading subheading-sm">Reduction in dimension and quality using pillow</span>
+                    <span class="subheading-sm">Compression algorithm | format: webp</span>
+                </h2>
+                <figure>
+                    <img 
+                        src="src/static/images/performance/golden_gate_w560_q65.webp"
+                        alt="Image of Golden Gate Bridge"
+                        width="560"
+                        height="315"
+                        loading="lazy"
+                        >
+                    <figcaption>
+                        Fig 15: Width reduced to 560px and quality to 65% of original.
+                        <br>
+                        Format: webp
+                        <br>
+                        Dimension: 560 X 420
+                        <br>
+                        Aspect-ratio: 1.3
+                        <br>
+                        File size: 11 KB
+                        <br>
+                        Quality: 65%
+                        <br>
+                        Optimization tool: <a href="https://pypi.org/project/pillow/" rel="nofollow noopener noreferrer" target="_blank">pillow</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+
+
+        </main>
+
+    </div>
+
+    <!-- development: -->
+    <script>
+        // console.log(vueEndpoint);
+        const scriptElement = document.createElement('script');
+        scriptElement.setAttribute('src', vueEndpoint);
+
+        // Use the onload event to run a callback function after Vue.js is loaded
+        scriptElement.onload = function() {
+            // Load your other scripts that use Vue.js here:
+            const scriptElemNavbar = document.createElement('script');
+            scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
+            document.body.appendChild(scriptElemNavbar);
+        };
+
+        document.body.appendChild(scriptElement);
+    </script>  
+
+    <!-- production: -->
+    <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
+    <script src="src/static/javascript/components/navbar.js"></script> -->
+    <script src="src/static/javascript/components/sidebar.js"></script>
+</body>
+</html>

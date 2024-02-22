@@ -10,7 +10,8 @@
         "title": "Performance & Organization",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
         "imagePath": "src/static/images/gallery/performance_200.jpg",
-        "imageDesc": "Image of Performance Written on Paper."
+        "imageDesc": "Image of Performance Written on Paper.",
+        "hrefLink": "src/static/html/performance/optimization.html"
     },
     "grid_flexbox": {
         "title": "Grid & Flexbox",

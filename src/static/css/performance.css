@@ -1,0 +1,149 @@
+h2 {
+    text-align: center;
+}
+
+.subheading {
+    display: block;
+}
+
+.subheading-center {
+    text-align: center;
+}
+
+.subheading-md {
+    font-size: 1.5rem;
+}
+
+.subheading-sm {
+    font-size: 1.2rem;
+}
+
+.txt-strike {
+    text-decoration: line-through;
+}
+
+/* table styles */
+
+caption {
+    border: 1px solid black;
+    border-bottom: initial;
+    font-weight: bold;
+    padding: 5px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tbody th {
+    text-align: left;
+}
+
+td {
+    text-align: center;
+}
+
+table a {
+    text-decoration: none;
+}
+
+.txt-green {
+    color: green;
+}
+
+table a:visited {
+    color: inherit;
+}
+
+th, td {
+    padding: 2px;
+    position: relative;
+}
+
+/* source: https://stackoverflow.com/questions/46635163/crosshair-highlight-for-table-on-hover */
+/* horizontal highlighting */
+tbody tr:hover {
+    background-color: #ffa;
+}
+
+/* td:hover::before { 
+    content: '\00a0';
+    position: absolute;
+    background-color: #ffa;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+} */
+
+/* vertical highlighting */
+td:hover::after
+ { 
+    content: '\00a0';
+    position: absolute;
+    background-color: #ffa;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    /* else covers content */
+    z-index: -1;  
+}
+
+table {overflow: hidden;}
+
+
+@media screen and (max-width: 575px) {
+    h1 {
+        text-align: center;
+    }
+
+    /* prevents overflow-x and thus scroll-x */
+    .figure-div * {
+        max-width: 100vw;
+        max-width: 100dvw;
+    }
+
+    /* prevents overflow-x and thus scroll-x */
+    figure {
+        margin: 1rem 0;
+    }
+
+    .figure-div figcaption {
+        padding: .5rem 1rem ;
+    }
+
+    .table-div {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    /* make first th col fixed upon scroll-x */
+    table {
+        width: 100%;
+        position: relative;
+    };
+
+    thead th:first-of-type,
+    tbody tr > th {
+        position:sticky;
+        left:0;
+        /* prevents seeing scrolled data underneath */
+        background-color: white;
+        /* mimics border-right */
+        box-shadow: 1px 0 black;
+        /* corrects for td:hover::after highlighting; index:-1 */
+        z-index: 1;
+    }
+
+    /* make hw sticky upon scroll-x */
+    .table-div {
+        position: relative;
+    }
+    .table-div h2 {
+        position: sticky;
+        left: 0;
+    }
+}
