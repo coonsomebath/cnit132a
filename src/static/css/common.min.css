@@ -1,0 +1,1 @@
+*{box-sizing:border-box}body,html{margin:0;padding:0}header{--header-height:5.5rem;height:var(--header-height)}main{align-items:center;display:flex;flex-direction:column;justify-content:center}p{font-family:Arial,Helvetica,sans-serif;font-size:1.2rem}.no-break{white-space:nowrap}.macro-container{margin:auto;width:67%}

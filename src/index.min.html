@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Bob Khounsombath"><meta property="article:published_time" content="2024-02-04"><base href="/cnit132a/src"><script>let vueBuild='.prod';if(window.location.hostname==='127.0.0.1'){const baseElement=document.querySelector('base');baseElement.setAttribute('href','/');vueBuild=''}else{const gtagElement=document.createElement('script');gtagElement.src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9";gtagElement.async=!0;document.head.appendChild(gtagElement);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+    gtag('js',new Date());gtag('config','G-L4Q6HTS9Z9')}
+    const vueEndpoint=`https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`</script><link rel="icon" href="src/favicon.ico" type="image/x-icon"><title>Gallery</title><meta name="description" content="CNIT 132A: Advanced HTML & CSS class portfolio."><link rel="stylesheet" href="src/static/css/common.min.css" type="text/css"><link rel="stylesheet" href="src/static/css/index.min.css" type="text/css"><link rel="stylesheet" href="src/static/css/components/navbar.min.css" type="text/css"><link rel="stylesheet" href="src/static/css/components/gallery.min.css" type="text/css"></head><body><div class="macro-container"><header><nav id="navbar" aria-expanded="false"></nav></header><h1>CNIT 132A Portfolio</h1><main id="gallery"></main></div><script>const scriptElement = document.createElement('script');
+            scriptElement.setAttribute('src', vueEndpoint);
+            scriptElement.onload = function() {
+                const scriptElemNavbar = document.createElement('script');
+                scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.min.js');
+                document.body.appendChild(scriptElemNavbar);
+    
+                const scriptElemGallery = document.createElement('script');
+                scriptElemGallery.setAttribute('src', 'src/static/javascript/components/gallery.min.js');
+                document.body.appendChild(scriptElemGallery);
+            };
+    
+            document.body.appendChild(scriptElement);</script><script defer="defer" src="src/static/javascript/components/sidebar.min.js"></script></body></html>

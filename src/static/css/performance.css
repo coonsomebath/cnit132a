@@ -23,12 +23,31 @@ h2 {
 }
 
 /* table styles */
+/* While Firefox might handle this situation differently, 
+    in Edge, the overflow: hidden can interfere with the 
+    position: sticky property.
+
+    To solve this problem, you can use overflow: clip instead 
+    of overflow: hidden. The overflow: clip property will clip 
+    the content of the element without creating a new block 
+    formatting context. This allows your elements with 
+    position: sticky to work as expected and stay visible as 
+    the user scrolls past them.
+    --Bing
+*/
+table {
+    overflow: clip;
+    --table-theme: #ffa;
+}
 
 caption {
     border: 1px solid black;
     border-bottom: initial;
     font-weight: bold;
     padding: 5px;
+    /* background-color: var(--table-theme); */
+    /* background-color: white; */
+    background-color: rgb(247, 227, 52);
 }
 
 table, th, td {
@@ -64,7 +83,7 @@ th, td {
 /* source: https://stackoverflow.com/questions/46635163/crosshair-highlight-for-table-on-hover */
 /* horizontal highlighting */
 tbody tr:hover {
-    background-color: #ffa;
+    background-color: var(--table-theme);
 }
 
 /* td:hover::before { 
@@ -83,7 +102,7 @@ td:hover::after
  { 
     content: '\00a0';
     position: absolute;
-    background-color: #ffa;
+    background-color: var(--table-theme);
     left: 0;
     bottom: 0;
     width: 100%;
@@ -92,7 +111,11 @@ td:hover::after
     z-index: -1;  
 }
 
-table {overflow: hidden;}
+td:hover {
+    background-color: rgb(247, 227, 52);
+}
+
+
 
 
 @media screen and (max-width: 575px) {
@@ -124,7 +147,7 @@ table {overflow: hidden;}
     table {
         width: 100%;
         position: relative;
-    };
+    }
 
     thead th:first-of-type,
     tbody tr > th {
@@ -138,7 +161,7 @@ table {overflow: hidden;}
         z-index: 1;
     }
 
-    /* make hw sticky upon scroll-x */
+    /* make h2 sticky upon scroll-x */
     .table-div {
         position: relative;
     }
