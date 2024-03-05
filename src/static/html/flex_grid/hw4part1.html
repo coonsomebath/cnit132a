@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <title>Working with Grids</title>
+        <meta name="description" content="working with grids in CNIT 132A">
+
+        <style>
+            .page-layout {
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            grid-template-rows: 100vh; 
+            }
+            .news, .links, .search, .messages {
+            text-align: center;
+            font-weight: bold;
+            }
+            .news {
+            background-color: cyan;
+            }
+            .links {
+            background-color: orange;
+            }
+            .search {
+            background-color: violet;
+            }
+            .messages {
+            background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-layout">
+            <div class="news">News</div>
+            <div class="links">Links</div>
+            <div class="search">Search</div>
+            <div class="messages">Messages</div>
+        </div>
+    </body>
+</html>
