@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>Homework 4 Part 2</title>
+    <meta name="description" content="working with flexbox in CNIT 132A. Homework 4 Part 2.">
+    <style>
+        * {
+            box-sizing:border-box;
+        }
+        body {margin: 0;}
+        
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            margin: 2rem;
+            --padding-item: .5rem;
+            --macro-font-size: 1rem;
+        }
+
+        /* skin */
+        header {background-color: #ff6347;}
+        aside:first-of-type {background-color:yellow;}
+        .main-article {background-color:#00008b; color:white;}
+        .auxillary-article {background-color:#ee82ee; color:rgb(0,0,255);}
+        aside:last-of-type {background-color:#ffc0cb;}
+        footer {background-color: #90ee90;}
+        h1, h2 {font-size: 1rem;}
+        article {text-align: left;}
+        
+        /* structure */
+        h1, h2 {margin: 0;}
+
+        .flex-item-1 {width: 100%;}
+        .flex-item-2, .flex-item-4 {width: 25%;}
+        .flex-item-3 {width: 50%; display:inline-flex;}
+        .flex-item-5 {width: 100%;}
+        .flex-container > *:not(main){padding: var(--padding-item);}
+        article {width: 50%; padding: calc(var(--padding-item) + var(--macro-font-size)) var(--padding-item);}
+        
+        /* 
+            In the browser’s developer tools, when you hover over a flex item, 
+            you might see a diagonal shaded line and an arrow. 
+            Here’s what they represent:
+
+            Diagonal Shaded Line: This line represents the available space where the element can expand. 
+                It shows the initial size of the flex item (set by flex-basis or the actual content) before 
+                any remaining space is distributed among the flex items according to their flex-grow and flex-shrink values.
+                If the flex item is set to a certain value but doesn’t take up the full size 
+                (because the container’s size along the main axis isn’t sufficient for the flex items in it), 
+                this shaded area appears to show the complete size of the flex item if there were space for it.
+            
+            Arrow: The arrow shows the direction in which the flex item grows or shrinks.
+                It will show horizontally if the flex-direction was set to row and vertically 
+                if it is set to column. The arrow appears when there is no space for an item to take 
+                its full size in a flex layout in the direction of the main axis.
+            
+            These visual aids can be very helpful when debugging layout issues with flexbox in CSS. 
+            They allow you to see how space is being distributed among flex items and how those 
+            items are growing and shrinking to fill that space.
+            --Bing
+        */
+    </style>
+</head>
+<body>
+    
+    <div class="flex-container">
+        <header class="flex-item-1">
+            <h1>
+                Name of Company
+            </h1>
+        </header>
+        <aside class="flex-item-2">
+            This is the aside 1
+        </aside>
+        <main class="flex-item-3">
+            <article class="main-article">
+                This is the main article of my page! This is the main
+                content of the page. In a 3-column layout, it should
+                be shown in the middle between the aside 1 and aside 2!
+            </article>
+            <article class="auxillary-article">
+                This column was created to have some content as a challenge
+                to adapt the old 3-column layout to a 4-column layout
+            </article>
+        </main>
+        <aside class="flex-item-4">
+            This is the aside 2
+        </aside>
+        <footer class="flex-item-5">
+            <h2>This is the footer</h2>
+            <div>Copyright &copy; 2017</div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

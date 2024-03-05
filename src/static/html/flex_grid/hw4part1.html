@@ -4,31 +4,46 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-        <title>Working with Grids</title>
-        <meta name="description" content="working with grids in CNIT 132A">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <title>Homework 4 Part 1</title>
+        <meta name="description" content="working with grids in CNIT 132A.  Homework 4 Part 1">
 
         <style>
-            .page-layout {
+            /* .page-layout {
             display: grid; 
             grid-template-columns: 1fr 1fr 1fr 1fr; 
             grid-template-rows: 100vh; 
-            }
+            } */
+            /* body {
+                margin: 0;
+            } */
             .news, .links, .search, .messages {
-            text-align: center;
-            font-weight: bold;
+                text-align: center;
+                font-weight: bold;
             }
             .news {
-            background-color: cyan;
+                background-color: cyan;
+                grid-area: news;
             }
             .links {
-            background-color: orange;
+                background-color: orange;
+                grid-area: links;
             }
             .search {
-            background-color: violet;
+                background-color: violet;
+                grid-area: search;
             }
             .messages {
-            background-color: red;
+                background-color: red;
+                grid-area: messages;
+            }
+            .page-layout {
+                display: grid; 
+                grid-template-columns: repeat(2, 1fr); 
+                grid-template-rows: repeat(2, calc(50vh - 8px));
+                grid-template-areas: 
+                    "search links" 
+                    "messages news"; 
             }
         </style>
     </head>

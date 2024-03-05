@@ -15,32 +15,37 @@
     },
     "grid_flexbox": {
         "title": "Grid & Flexbox",
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "description": "Flexbox and Grid are great tools for laying out website structure. It makes layout easier with it's properties. You don't have to choose between them, but rather you can use them in combination to accomplish your layout pattern.",
         "imagePath": "src/static/images/gallery/grid_flexbox_200.jpg",
-        "imageDesc": "Image of CSS Grid and Flexbox."
+        "imageDesc": "Image of CSS Grid and Flexbox.",
+        "hrefLink": "src/static/html/flex_grid/hw4.html"
     },
     "semantics_accessibility": {
         "title": "Semantics & Accessibility",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
         "imagePath": "src/static/images/gallery/semantics_accessibility_200.jpg",
-        "imageDesc": "Image of HTML Semantics & Accessibility Text."
+        "imageDesc": "Image of HTML Semantics & Accessibility Text.",
+        "hrefLink": "#"
     },
     "preprocessors": {
         "title": "Preprocessors",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
         "imagePath": "src/static/images/gallery/preprocessors_200.jpg",
-        "imageDesc": "Image of CSS Preprocessors Text."
+        "imageDesc": "Image of CSS Preprocessors Text.",
+        "hrefLink": "#"
     },
     "animation": {
         "title": "Animation",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
         "imagePath": "src/static/images/gallery/animations_200.jpg",
-        "imageDesc": "Image of CSS Animation Word Art."
+        "imageDesc": "Image of CSS Animation Word Art.",
+        "hrefLink": "#"
     },
     "seo_analytics": {
         "title": "SEO & Final Analytics Report",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
         "imagePath": "src/static/images/gallery/seo_200.jpg",
-        "imageDesc": "Image of SEO Infographic."
+        "imageDesc": "Image of SEO Infographic.",
+        "hrefLink": "#"
     }
 }
