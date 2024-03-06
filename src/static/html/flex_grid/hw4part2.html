@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
     <title>Homework 4 Part 2</title>
     <meta name="description" content="working with flexbox in CNIT 132A. Homework 4 Part 2.">
     <style>
@@ -19,8 +19,8 @@
         /* skin */
         header {background-color: #ff6347;}
         aside:first-of-type {background-color:yellow;}
-        article:first-of-type {background-color:#00008b; color:white;}
-        article:last-of-type {background-color:#ee82ee; color:rgb(0,0,255);}
+        .article-1 {background-color:#00008b; color:white;}
+        .article-2 {background-color:#ee82ee; color:rgb(0,0,255);}
         aside:last-of-type {background-color:#ffc0cb;}
         footer {background-color: #90ee90;}
         h1, h2 {font-size: 1rem;}
@@ -32,7 +32,7 @@
         header {width: calc(100vw - 2 * var(--padding-item));}
         aside {width: calc(25% - 2 * var(--padding-item));}
         main {width: calc(50% - var(--padding-item)); display: inline-flex; flex-grow: 1;}
-        article {width: calc(50%); text-align: left; padding-top:calc(1rem + var(--padding-item)); padding-bottom:calc(1rem + var(--padding-item));}
+        [class |= 'article'] {width: calc(50%); text-align: left; padding:calc(1rem + var(--padding-item)) var(--padding-item);}
         footer {width: calc(100vw - 2 * var(--padding-item));}
         
         /* 
@@ -70,15 +70,15 @@
         This is the aside 1
     </aside>
     <main>
-        <article>
+        <div class="article-1">
             This is the main article of my page! This is the main
             content of the page. In a 3-column layout, it should
             be shown in the middle between the aside 1 and aside 2!
-        </article>
-        <article>
+        </div>
+        <div class="article-2">
             This column was created to have some content as a challenge
             to adapt the old 3-column layout to a 4-column layout
-        </article>
+        </div>
     </main>
     <aside>
         This is the aside 2

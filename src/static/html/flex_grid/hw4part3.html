@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base href="/cnit132a/src">
+    <script>
+        let vueBuild = '.prod';
+        if(window.location.hostname === '127.0.0.1'){
+            const baseElement = document.querySelector('base');
+            baseElement.setAttribute('href', '/');
+            vueBuild = '';
+        }
+        const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
+    </script>
+
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
+    <title>Column Layout</title>
+    <meta name="description" content="Column layout">
+    <style>
+        * {
+            box-sizing:border-box;
+        }
+        body {
+            position: relative;
+            font-size: 1.3rem;
+            display: grid;
+            margin: 0;
+            place-content: center;
+            height: 100vh;
+        }
+        .fourcol {
+            column-count: 4;
+            column-gap: 15px;
+            column-rule: 3px solid blue;
+            max-width: 1360px;
+            margin:1rem;
+        }
+        .footer {
+            text-align:center;
+            font-style: italic;
+        }
+        .fourcol::before {
+            content:"\00A0";
+            position: absolute;
+            top: -4px;
+            display: block;
+            width: 100%;
+            height: 2px;
+            box-shadow: 0 -1.6px 2px #e9e8e8;
+        }
+        div {
+            width: fit-content;
+            position: relative;
+        }
+
+        nav {
+            position: absolute;
+        }
+        @media screen and (width < 860px) {
+            /* resets place-content:center */
+            body {display: initial;}
+
+            nav#navbar ul {
+                /* make href closer to X-btn and r.thumb */
+                align-self: end;
+                margin-right: 3rem;
+            }
+            nav#navbar .menu-wrapper {
+                /* button is distorted for some reason  */
+                width: 2.3ch;               
+            }
+
+            /* make content x-scrollable w/ nav fixed */
+            #navbar {
+                position: fixed;
+                top:0;
+                width: 100vw;
+            }
+            .main-container {
+                /* issue when dynamically changing screen size; gap opens above nav!? increase margin in .fourcol instead */
+                /* margin-top: 5.5rem; */
+
+                /* ie beyond 100vw */
+                width: 100%;
+
+                /* important for decoupling nav from main-container */
+                overflow: auto;
+            }
+            .fourcol {
+                margin: 7rem 1rem 1rem;
+
+                /* important for mirroring assignment format */
+                width: 1360px;
+            }
+        }
+
+        /* TODO: dynamically decreasing height causes content to overlap nav. z-index didn't work. 
+            Trying to fix this broke layout when hamburger opens; content shifts up to fill element
+            hole from opened menu.
+        */
+        @media screen and (height < 820px) and (width < 860px) {
+            nav#navbar {
+                position: relative;
+                top:0;
+            }
+            .fourcol {
+                position: relative;
+                margin-top: 1rem;
+                top: 0;
+                left:0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+</head>
+    <body>
+        <nav id="navbar" aria-expanded="false"></nav>
+        <div class="main-container">
+            <main class="fourcol">
+                <h1>Little Red Riding Hood - Short Version</h1>
+                <p>Once upon a time there was a little girl who was loved by every one who looked at her, but most of all by her grandmother, and there was nothing that she would not have given to the child. The grandmother gave the little girl a little cap of red velvet, which suited her so well that she would never wear anything else. Because of that, she was called Little Red Riding Hood.</p>
+                <p>One day her mother asked her if she could take a piece of cake and a bottle of wine to her grandmother. The grandmother was ill and weak, and these gifts would make her happy and would do her good. The little girl should go out early and she should walk nicely and quietly and she should not run off the path.</p>
+                <p>Little Red Riding Hood promised her mother to be very careful and she gave her a kiss.</p>
+                <p>The grandmother lived out in the wood, half a league from the village, and just as Little Red Riding Hood entered the wood, a wolf met her. Little Red Riding Hood did not know what a wicked creature he was, and was not at all afraid of him.</p>
+                <p>The wolf greeted the little girl and she replied back to the wolf in a nice manner. The wolf asked the girl where she was going so early and she responded that she was going to her grandmother to give to her a delicious cake and a bottle of wine as she was very ill.</p>
+                <p>The wolf asked where the grandmother lived and, again, the little girl told the wolf where the grandmother's house was.</p>
+                <p>The wolf said goodbye to the little girl that continued her path towards her grandmother's house while the wolf got a shortcut to arrive to the grandmother's house before the little girl.</p>
+                <p>Well, I believe you know how this story ends?!?</p>
+                <p class="footer">This is just a short version of the famous fairy tale</p>
+            </main>
+        </div>
+
+        <!-- development: -->
+        <script>
+            // console.log(vueEndpoint);
+            const scriptElement = document.createElement('script');
+            scriptElement.setAttribute('src', vueEndpoint);
+
+            // Use the onload event to run a callback function after Vue.js is loaded
+            scriptElement.onload = function() {
+                // Load your other scripts that use Vue.js here:
+                const scriptElemNavbar = document.createElement('script');
+                scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
+                document.body.appendChild(scriptElemNavbar);
+            };
+
+            document.body.appendChild(scriptElement);
+        </script>  
+
+        <!-- production: -->
+        <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
+        <script src="src/static/javascript/components/navbar.js"></script> -->
+        <script src="src/static/javascript/components/sidebar.js"></script>
+    </body>
+</html>
