@@ -1,38 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-L4Q6HTS9Z9');
+    </script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="icon" href="src/favicon.ico" type="image/x-icon">
     <title>Homework 4 Navigation</title>
     <meta name="description" content="Homework 4 navigation page">
+
+    <base href="/cnit132a/src">
+    <script>
+        let vueBuild = '.prod';
+        if(window.location.hostname === '127.0.0.1'){
+            const baseElement = document.querySelector('base');
+            baseElement.setAttribute('href', '/');
+            vueBuild = '';
+        }else{
+            const gtagElement = document.createElement('script');
+            gtagElement.src = "https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9";
+            gtagElement.async = true;
+            document.head.appendChild(gtagElement);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-L4Q6HTS9Z9');
+        }
+        const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
+    </script>
+    <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+    <style>
+        body {margin:0;}
+        .assignment-options {
+            padding-top: 5.5rem;
+        }
+        .parent-ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    Part 1
-                    <ul>
-                        <li><a href="hw4part1.html">CSS Grid</a></li>
-                    </ul>
-                </li>
-                <li>
-                    Part 2
-                    <ul>
-                        <li><a href="hw4part2.html">Flexbox: First attempt (not maintainable)</a></li>
-                        <li><a href="hw4part2.attempt2.html">Flexbox: Homework Submission</a></li>
-                    </ul>
-                </li>
-                <li>
-                    Part 3
-                    <ul>
-                        <li><a href="hw4part3.html">column-count</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div class="macro-container">
+        <header>
+            <nav id="navbar" aria-expanded="false"></nav>
+        </header>
+        <div class="assignment-options">
+            <nav>
+                <ul class="parent-ul">
+                    <li>
+                        Part 1
+                        <ul>
+                            <li><a href="src/static/html/flex_grid/hw4part1.html">CSS Grid</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Part 2
+                        <ul>
+                            <li><a href="src/static/html/flex_grid/hw4part2.html">Flexbox: First attempt (not maintainable)</a></li>
+                            <li><a href="src/static/html/flex_grid/hw4part2.attempt2.html">Flexbox: Homework Submission</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Part 3
+                        <ul>
+                            <li><a href="src/static/html/flex_grid/hw4part3.html">column-count</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- development: -->
+    <script>
+        // console.log(vueEndpoint);
+        const scriptElement = document.createElement('script');
+        scriptElement.setAttribute('src', vueEndpoint);
+
+        // Use the onload event to run a callback function after Vue.js is loaded
+        scriptElement.onload = function() {
+            // Load your other scripts that use Vue.js here:
+            const scriptElemNavbar = document.createElement('script');
+            scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
+            document.body.appendChild(scriptElemNavbar);
+        };
+
+        document.body.appendChild(scriptElement);
+    </script>  
+
+    <!-- production: -->
+    <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
+    <script src="src/static/javascript/components/navbar.js"></script> -->
+    <script src="src/static/javascript/components/sidebar.js"></script>
 </body>
 </html>
