@@ -18,6 +18,7 @@ thumbnailImg.onclick = function(e){
     iframeGA4IntroElem.frameborder = "0";
     // iframeGA4IntroElem.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"; // browser doesn't allow anymore
     iframeGA4IntroElem.allowfullscreen = true;
+    iframeGA4IntroElem.allow = 'autoplay';
 
     e.target.replaceWith(iframeGA4IntroElem);
 }
