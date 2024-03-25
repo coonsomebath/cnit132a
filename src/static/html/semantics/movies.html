@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L4Q6HTS9Z9');
+  </script> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <base href="/cnit132a/src">
+  <script>
+      /* Development: this swapping is causing console.errors, but not a problem. strictly a development output.
+      * commenting out script tag and uncommenting <base href="/"> fixes it, but you can't
+      * keep toggling it between views (local vs gh.Pages) for every webpage and path coded!
+      */
+     let vueBuild = '.prod';
+     if(window.location.hostname === '127.0.0.1'){
+          const baseElement = document.querySelector('base');
+          baseElement.setAttribute('href', '/');
+          document.documentElement.style.setProperty('--banner-img','url("/src/static/images/semantics/banner.png")');
+          vueBuild = '';
+      }else{
+          const gtagElement = document.createElement('script');
+          gtagElement.src = "https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9";
+          gtagElement.async = true;
+          document.head.appendChild(gtagElement);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-L4Q6HTS9Z9');
+      }
+      const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
+  </script>
+
+  <link rel="icon" href="src/favicon.ico" type="image/x-icon">
+  <title>Great movie titles</title>
+  <meta name="description" content="a list of great movie titles, name of director and trailer">
+  <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+  <style>
+    :root{
+      --banner-img: url('https://coonsomebath.github.io/cnit132a/src/static/images/semantics/banner.png');
+    }
+    body { 
+      background-color: #DEB887; 
+      /* color: #A52A2A; === hsl(0, 59%, 41%); */
+      color: hsl(0, 59%, 20%);
+    }
+
+    header:first-of-type {
+      height: 4.5rem;
+      width: 80%;
+      margin: auto;
+    }
+    #navbar {
+      background-color:white;
+      width: 100%;
+      padding: 2rem 0;
+    }
+    #navbar ul {
+      padding-right: 2rem;
+    }
+    #navbar img {
+      padding-left: 2rem;
+    }
+    @media screen and (max-width: 600px){
+      /* fixes broken css from nav injection into non-native codebase */
+      header:first-of-type {
+        background-color: #DEB887;
+      }
+      #navbar{
+        height: 2rem;
+        padding-right: 2rem;
+      }
+      #navbar[aria-expanded = "true"] {
+        right: -2rem;
+      }
+      #navbar li {
+        padding-left:2rem;
+      }
+      #navbar[aria-expanded = "false"]{
+        --translateY-offset: 4px;
+        --buns: 6px;
+      }
+      #navbar[aria-expanded = "false"] [class |= menu] {
+        --position-offset: -2px;
+        left: var(--position-offset);
+      }
+    }
+
+    header:last-of-type {
+      width: 60%; 
+      margin: 0 auto; 
+      position: relative;
+      /* background-image: var(--banner-img);  */
+      box-shadow: 5px 5px 5px gray; 
+      text-align: center; 
+      font-size: 1.5rem; 
+      color: black;
+    }
+    header::before {
+      content:'';
+      width: 100%;
+      height: 100%;
+      background-image: var(--banner-img);
+      background-color:white;
+
+      position:absolute;
+      left:0;
+      opacity: .2;
+      z-index: -1;
+    }
+
+    header::after {
+      content:'';
+      height: 100%;
+      width: 100%;
+      background-color:white;
+      position: absolute;
+      left: 0;
+      top:0;
+      z-index: -2;
+    }
+
+    @media screen and (min-width:2450px) {
+      header::before {   
+        background-repeat: no-repeat round;
+        background-color:transparent;
+        opacity: initial;
+      }
+      header::after {
+        background-image: var(--banner-img);
+        background-repeat: no-repeat;
+        transform: rotate(180deg);
+        /* rotate: 180deg; */
+        background-size: contain;
+        background-position: 0 -8px;
+      }
+    }
+    
+    @media screen and (max-width:2450px) {
+      header::before{
+        background-size: cover;
+        background-position:center;
+      }
+    }
+
+    ul {
+      padding-left: 0;
+    }
+
+    li:not(nav li) { 
+      width: 80%; 
+      margin: 0 auto; 
+      padding: 0 10px;
+
+      border: 2px solid #D2691E; 
+      list-style: none;
+    }
+    footer {
+      width: 60%; 
+      margin: 10px auto; 
+      padding: 3px 0; 
+
+      background-color: #A52A2A; 
+      text-align:center; 
+      font-size: 0.9rem;
+      color:white; 
+    }	 
+    footer img {
+      float: left; 
+      margin: 0 5px 5px 0;
+      padding-left: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="macro-container">
+  <header>
+    <nav id="navbar" aria-expanded="false"></nav>
+  </header>
+  <header>
+    <h1>Great Movies</h1>
+    <h2>Great Directors</h2>
+  </header>
+  <!-- https://schema.org/docs/schemas.html -->
+  <!-- https://schema.org/Movie -->
+  <!-- https://schema.org/datePublished (Movie inherits datePublished from CreativeWork, no need to create separate itemscope) -->
+  
+  <!-- https://schema.org/Person (not inherited by Movie, create separate itemscope)-->
+  
+  <!-- https://schema.org/CollegeOrUniversity -->
+  
+  <!-- <main aria-roledescription="List of movies specifying director, genre, and release date."> probably an excessive use case. -->
+  <main>
+    <ul>
+      <!-- <div> substituted by <ul><li> instead so screen reader can announce number of movies in list. -->
+      <li itemscope itemtype="https://schema.org/Movie">
+        <h3 itemprop="name">Avatar</h3>
+        <p itemprop="director" itemscope itemtype="https://schema.org/Person">
+          Director:
+          <span itemprop="name">James Cameron</span> (born <meta itemprop="birthDate" content="1954-08-16">August 16, 1954)
+        </p>
+        <p itemprop="genre">Type: Science fiction</p>
+        <!-- note: meta is a self-closing tag -->
+        <p>Release Date: <meta itemprop="datePublished" content="2009-12-18">December 18, 2009</p>
+      </li>
+      <!-- </div> -->
+  
+      <li itemscope itemtype="https://schema.org/Movie">
+        <h3 itemprop="name">Star Wars: Episode VII</h3>
+        <p itemprop="director" itemscope itemtype="https://schema.org/Person">
+          Director: <span itemprop="name">J. J. Abrams</span> (born <meta itemprop="birthDate" content="1966-06-27">June 27, 1966)
+        </p>
+        <p itemprop="genre">Type: Science fiction</p>
+        <p>Release Date: <meta itemprop="datePublished" content="2015-12-18">December 18, 2015</p>
+      </li>
+  
+      <li itemscope itemtype="https://schema.org/Movie">
+        <h3 itemprop="name">Titanic</h3>
+        <p itemprop="director" itemscope itemtype="https://schema.org/Person">
+          Director: <span itemprop="name">James Cameron</span> (born <meta itemprop="birthDate" content="1954-08-16">August 16, 1954)
+        </p>
+        <p itemprop="genre">Type: Drama</p>
+        <p>Release Date: <meta itemprop="datePublished" content="1997-12-19">December 19, 1997</p>
+      </li>
+  
+      <li itemscope itemtype="https://schema.org/Movie">
+        <h3 itemprop="name">Schindler's List</h3>
+        <p itemprop="director" itemscope itemtype="https://schema.org/Person">
+          Director: <span itemprop="name">Steven Spielberg</span> (born <meta itemprop="birthDate" content="1946-12-18">December 18, 1946)
+        </p>
+        <p itemprop="genre">Type: Drama</p>
+        <p>Release Date: <meta itemprop="datePublished" content="1993-12-15">December 15, 1993</p>
+      </li>
+    </ul>
+  
+  </main>
+  
+  <footer>
+    <img src="src/static/images/semantics/movielogo.png" alt="Clip art of a movie camera.">
+    <p itemscope itemtype="https://schema.org/CollegeOrUniversity">
+      List made by
+      <span itemprop="department">
+        <abbr title="Computer Networking and Information Technology">
+          CNIT
+        </abbr>
+      </span>
+      <span itemprop="member">
+        132A
+      </span>
+      class at
+      <span itemprop="name">
+        <abbr title="City College of San Francisco">
+          CCSF
+        </abbr>
+      </span>
+    </p>
+    <p itemscope itemtype="https://schema.org/CreativeWork">Copyright &copy; <span itemprop="copyrightYear">2017</span>
+  </footer>
+  </div>
+
+  <!-- development: -->
+  <script>
+    const scriptElement = document.createElement('script');
+    scriptElement.setAttribute('src', vueEndpoint);
+
+    // Use the onload event to run a callback function after Vue.js is loaded
+    scriptElement.onload = function() {
+        // Load your other scripts that use Vue.js here:
+        const scriptElemNavbar = document.createElement('script');
+        scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
+        document.body.appendChild(scriptElemNavbar);
+    };
+
+    document.body.appendChild(scriptElement);
+  </script>  
+
+  <!-- production: -->
+  <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
+  <script src="src/static/javascript/components/navbar.js"></script> -->
+  <script defer src="src/static/javascript/components/sidebar.js"></script>
+
+</body>
+</html>

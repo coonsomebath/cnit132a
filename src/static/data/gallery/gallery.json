@@ -22,10 +22,10 @@
     },
     "semantics_accessibility": {
         "title": "Semantics & Accessibility",
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "description": "Semantics and Accessibility are important aspects of development if a website wants to increase its user base. The two target audiences for implementing semantic and accessible HTML and content are individuals that use Assistive Technologies (AT) and <abbr title='Search Engine Optimization'>SEO</abbr> engines. Using appropriate Tags, Elements, Attributes, and Schemas that core developers designed to extract data and its meaning facilitates accessibility parsing. The user interface comes in three major flavors: <span class='no-break'>1) visual/graphical</span> 2) auditory 3) touch. Moreover, an inaccessible website is an open target for litigation.",
         "imagePath": "src/static/images/gallery/semantics_accessibility_200.jpg",
         "imageDesc": "Image of HTML Semantics & Accessibility Text.",
-        "hrefLink": "#"
+        "hrefLink": "src/static/html/semantics/movies.html"
     },
     "preprocessors": {
         "title": "Preprocessors",

@@ -3,17 +3,17 @@ const navbar = Vue.createApp({
     /* HTML */
     `
         <div class="nav-icons">
-            <a :href="pages.Gallery" target="_self">
+            <a :href="pages.Gallery" target="_self" aria-hidden='true' tabindex="-1">
                 <img :src="image.path" :alt="image.description">
             </a>
-            <div class="menu-wrapper">
+            <div class="menu-wrapper" title="Hamburger menu" role="button" aria-controls="navbar">
                 <div class="menu-1"></div>
                 <div class="menu-2"></div>
                 <div class="menu-3"></div>
             </div>
         </div>
-        <ul>
-            <li v-for="(hrefLink, page, index) in pages" :key="page">
+        <ul role="menu" id="nav-items">
+            <li v-for="(hrefLink, page, index) in pages" :key="page" role="menuitem">
                 <a :href="hrefLink" target="_self" class="nav-links"> 
                     {{ page }}
                 </a>
@@ -24,6 +24,18 @@ const navbar = Vue.createApp({
     data: function() {
 
         const rootPath = window.location.hostname === "127.0.0.1" ? '': '/cnit132a';
+
+        // ARIA accommodation:
+        window.addEventListener('DOMContentLoaded', setHamburgerAriaVisibility);
+        window.addEventListener('resize', setHamburgerAriaVisibility);
+        function setHamburgerAriaVisibility(e){
+            const hamburgerBtn=document.querySelector('.menu-wrapper');
+            if(e.target.innerWidth<600){
+                hamburgerBtn.setAttribute('aria-hidden', 'false');
+            }else{
+                hamburgerBtn.setAttribute('aria-hidden', 'true');
+            }
+        }
 
         return {
             image: {
