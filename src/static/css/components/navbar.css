@@ -198,8 +198,8 @@ header {
     @keyframes animateSidebar {
         /* animating width is less performant than using translate due to repainting calculations */
         from {
-            -webkit-transform: scale(0 1);
-            transform: scale(0 1);
+            -webkit-transform: scale(0, 1);
+            transform: scale(0, 1);
             /* scale: 0 1; */
             opacity: 0;
 
@@ -208,8 +208,8 @@ header {
             /* transform: scaleX(0); */
         }
         to {
-            -webkit-transform: scale(1 1);
-            transform: scale(1 1);
+            -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
             /* scale: 1 1; */
             opacity: 1;
 
