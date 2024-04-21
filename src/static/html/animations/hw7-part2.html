@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base href="/cnit132a/src">
+    <script>
+      if (window.location.hostname === "127.0.0.1") {
+        const baseElement = document.querySelector("base");
+        baseElement.href = "/";
+      }
+    </script>
+
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
+    <title>Shapes</title>
+    <meta name="description" content="shapes homework">
+
+
+    <!-- https://github.com/GoogleChromeLabs/container-query-polyfill -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/container-query-polyfill@1/dist/container-query-polyfill.modern.js"></script> -->
+
+
+    <style>
+      body {
+        background-color: beige;
+        max-width: 1000px;
+        margin-inline: auto;
+        margin-top: 10rem;
+      }
+
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+      img {
+        float: left;
+        shape-outside: url('src/static/images/animations/house.png');
+        shape-margin: 10px;
+        /* shape-image-threshold: .9; does not work on this image, but does on a linear-gradient */
+      }
+      code {
+        color:red;
+        white-space: nowrap;
+      }
+      .code-text {
+        color:blue;
+      }
+      .gradient::before {
+        content:""; display: block;
+        width: 185px; height: 149px;
+        float:left;
+        background-color: rgb(50, 205, 50);
+        background: linear-gradient(60deg, rgba(50, 205, 50, 1) 30%, rgb(166, 248, 166, 0) 60%);
+     shape-outside: linear-gradient(60deg, rgba(50, 205, 50, 1) 30%, rgb(166, 248, 166, 0) 50%);
+        shape-image-threshold: .2;
+    }
+    p:nth-of-type(2){
+      text-indent:1.5rem;
+    }
+
+
+    .container {
+      container-type: inline-size;
+      container-name: mySectionContainer;
+
+      padding: 1rem;
+    }
+
+    @container mySectionContainer (max-width: 600px) {
+        h2 {
+          font-size: 10px;
+        }
+        code {
+          color: green;
+        }
+      }
+
+    .gradient {
+      container-type: inline-size;
+      container-name: myNestedGradientContainer;
+    }
+
+    @container myNestedGradientContainer (max-width: 600px){
+      p {
+        color: rebeccapurple;
+      }
+    }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Shaping Content Around an Image</h1>
+      </header>
+      <section class="container">
+        <h2>
+          Example of shaping content
+        </h2>
+        <img src="src/static/images/animations/house.png" alt="cartoon house image">
+        <p>
+          The image must have its <code>float</code> attribute set in order to make shaping possible.
+          It must also have its <code>shape-outside</code> attribute set, where the value is the 
+          <wbr><code>url(<span class="code-text">'/src/images/house.png'</span>)</code> function.
+          The image should have some transparent buffer area around the target image, so the file-type should support transparency, e.g. png.
+          <code>shape-outside</code> will use the image's alpha channel to effectively recreate just the image i.e. just the
+          house minus the transparent buffer area, with a transparent placeholder. It will then effectively superimpose the image
+          over the transparent "clone". This "frees" up the buffer area for text to "hug"/"shape" around the image. The "hugging" is
+          very tight and butts up against the recreated image set. To create an offset margin, use 
+          <code>shape-margin</code>:<code><span class="code-text"> 10px</span>;</code> for example.
+        </p>
+        <p>
+          You can also use a <code>linear-gradient</code> to create an image to shape around. For this scenario,
+          you can use <code>shape-image-threshold</code> to superimpose the text over the gradient image. This does not work
+          on an image like the one used in this house example however.
+        </p>
+
+        <div class="gradient">
+          <p>
+            It is important to note that the image must be a CORS compatible image that's served from
+            the same origin or have the proper headers set, making it CORS compatible.
+            For development, you can use python to spin up a development server.
+            You should <code>cd</code> i.e. point the current working directory to the
+            folder/directory that contain the files that you want the <code>http.server</code> to serve.
+            
+            You can use <code>python -m http.server <span class="code-text">[PORT]=8000</span></code>
+            as the development server, thus making the image CORS compatible.
+            The server does not watch the file for changes, so you will need to manually refresh the browser to reflect
+            any changes made to the source code. With that setup, you can try your hand at writing some code to play around
+            with the CSS Shapes properties that is available for your enjoyment.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

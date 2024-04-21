@@ -11,14 +11,13 @@
       document.documentElement.style.setProperty('--clouds',"url('/src/static/images/animations/clouds.png')");
     }
     function toggleAnimation(event){
+      // get custom property set in :root{} pseudo selector from css file 
       const state = getComputedStyle(document.documentElement).getPropertyValue('--animation-state');
       switch (state){
         case 'running':
-          console.log('running');
           document.documentElement.style.setProperty('--animation-state', 'paused');
           break;
         case 'paused':
-          console.log('paused');
           document.documentElement.style.setProperty('--animation-state', 'running');
         }
     }
@@ -37,8 +36,8 @@
 </head>
 <body>
   <div id="container-btn">
-    <button id="animation-state" onclick="toggleAnimation(event)" id="reduce-motion" type="button">Toggle Animation</button>
-    <button id="animation-kill" onclick="killAnimation(event)" id="reduce-motion" type="button">Stop Animation</button>
+    <button id="animation-state" onclick="toggleAnimation(event)" type="button">Toggle Animation</button>
+    <button id="animation-kill" onclick="killAnimation(event)" type="button">Stop Animation</button>
   </div>
   <div id="sky">
     <h1>Rams Airways</h1>
