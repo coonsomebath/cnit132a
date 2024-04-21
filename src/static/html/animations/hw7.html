@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <meta charset="utf-8">
+  <base href="/cnit132a/src">
+  <script>
+    if(window.location.hostname==='127.0.0.1'){
+      const baseElement=document.querySelector('base');
+      baseElement.href='/';
+      document.documentElement.style.setProperty('--clouds',"url('/src/static/images/animations/clouds.png')");
+    }
+    function killAnimation(){
+      document.documentElement.style.setProperty('--kill-animation', '0s');
+    }
+  </script>
+  <link rel="icon" href="src/favicon.ico" type="image/x-icon">
   <title>Flying plane</title>
   <meta name="description" content="airplane flying with CSS3 animation">
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="hw7.css">
+  
+  
+  
+
+  <link rel="stylesheet" href="src/static/css/hw7.css">
 </head>
 <body>
+  <button onclick=killAnimation() id="reduce-motion" type="button">Reduce Motion</button>
   <div id="sky">
-
-    <img src="plane.png" alt="cartoon airplane">
-
+    <h1>Rams Airways</h1>
+    <div id="banner">FLY WITH US, WE ARE SAFE.</div>
+    
+    <img src="src/static/images/animations/plane.png" alt="cartoon airplane">
+    
   </div>
 </body>
 </html>

@@ -1,15 +1,163 @@
-* { background-color:#C0DEED;}
+* { 
+    background-color:#C0DEED;
+    box-sizing: border-box;
+}
+:root {
+    --clouds: url('https://coonsomebath.github.io/cnit132a/src/static/images/animations/clouds.png');
+}
+body {
+    position: relative;
+}
+
+button {
+    position:absolute;
+    z-index: 1;
+    left:50%;
+    transform: translateX(-50%);
+}
 
 #sky {
-position:fixed;
-top:0px;left:0px;
-width:100%;
-height:100%;
-text-align:center;
-margin:0px;
-padding:0px;
-background-color:#C0DEED;
-background: url(clouds.png) center top repeat-x;
-padding-top:300px;
-padding-bottom:10px;
+    position:fixed;
+    top:0px;left:0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    margin:0px;
+    padding:0px;
+    background-color:#C0DEED;
+    /* background: url(clouds.png) center top repeat-x; */
+    background: var(--clouds) top left repeat-x;
+    
+    padding-top:300px;
+    padding-bottom:10px;
+    animation: flying var(--kill-animation,20s) linear 0s infinite normal;
+
+    transform-style: preserve-3d;
+    perspective: 200px;
+}
+/* animation-name, animation-duration, animation-timing-function, animation-delay,
+   animation-iteration-count, animation-direction, animation-fill-mode, 
+   animation-play-state
+ */
+h1 {
+    color:black;
+    position: relative;
+    bottom: 6rem;
+}
+
+#banner {
+    position:relative;
+    bottom: 5rem;
+    text-align: left;
+    width:fit-content;
+
+    /* setting initial prevented the animation from working.
+        animation: flying-banner 2s linear 0s initial normal forwards; 
+    */
+    animation: flying-banner var(--kill-animation,5s) linear 0s normal forwards;
+}
+
+/* 
+    https://www.w3schools.com/css/css3_animations.asp
+    https://www.w3schools.com/cssref/css_animatable.php 
+*/
+@keyframes flying-banner {
+    0% {
+        left:0%;
+        color:red;
+    }
+    25% {
+        font-size: 10px;
+    }
+
+    50% {
+        /* This keyframe represents reaching the right most side of viewport. */
+
+        /* Option 1:
+            used when font-size:initial */
+        /* --fit-content-width:214.783px; */
+
+        /* Option 2: 
+            for font-size: 5px; 
+            I'm not sure why 40px works; fit-content @ 5px is 67px */
+        --fit-content-width:40px;
+        font-size: 5px;
+
+        /* goes offscreen w/o scrollbar showing.
+        works prior to setting translateX for final centering
+        left:calc(100% + 215px); */
+
+        /* Note: using 214.783px is a tightly coupled solution and not general enough. 
+            but w/ javascript and setting property variable it can work... */
+        left:calc(100% - var(--fit-content-width) - calc(var(--fit-content-width) / 2));
+
+        /* Option 1 & 2:*/
+            transform:translateX(50%); 
+
+        /* Explanation:
+            "translateX(50%)" and "- calc(214.783px / 2)"
+            were needed to compensate for "translateX(-50%)"
+            in 100% keyframe, else banner fell short of 
+            touching the right edge.
+        */
+        color:blue;
+        
+
+        transform: rotateX(360deg);
+    }
+    100% {
+        color:green;
+        left:50%;
+        text-align: center;
+        transform:translateX(-50%);
+        font-size: 18px;
+    }
+}
+
+@keyframes flying {
+    0% {
+        background-position-x: left;
+    }
+    100% {
+        background-position-x: calc(100% - 100vw);
+    }
+}
+/* calc(100% - 100vw)
+    It will prevent background re-rendering jitters.
+
+    You can think of it like stitching together the start
+    and end of the image, while lining up the clouds in
+    a way that blends seamlessly.
+
+    The browser must be some how interpolating the image
+    because I can't see the vertical mis-alignment of the
+    clouds when it loops back to the beginning.
+
+    Interestingly, you can adjust the #vw to any value.
+    The larger the value, the faster the animation, the 
+    smaller the value the slower.
+
+    However, values over 100 causes jitters. 
+
+    In addition, values less than 100vh also causes jitters.
+
+    Furthermore, background-position-x: calc(100% - 100%) looks
+    similar to background-position-x: calc(100% - 100vh), but 
+    the former kills the animation and doesn't animate.
+
+    'vw' will capture overflow, while '%' will be inherited
+    from parent container's set/default width.
+*/
+
+@media (prefers-reduced-motion){
+    #sky, #banner {
+        animation: initial;
+    }
+    #banner {
+        text-align: center;
+        font-size: 18px;
+        color: green;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
