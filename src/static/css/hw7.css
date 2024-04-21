@@ -4,16 +4,21 @@
 }
 :root {
     --clouds: url('https://coonsomebath.github.io/cnit132a/src/static/images/animations/clouds.png');
+    --animation-state: running;
 }
 body {
     position: relative;
 }
 
-button {
+#container-btn {
     position:absolute;
     z-index: 1;
     left:50%;
     transform: translateX(-50%);
+    background-color:transparent;
+}
+#animation-kill, #animation-state {
+    margin: 2px;
 }
 
 #sky {
@@ -30,7 +35,7 @@ button {
     
     padding-top:300px;
     padding-bottom:10px;
-    animation: flying var(--kill-animation,20s) linear 0s infinite normal;
+    animation: flying var(--kill-animation,20s) linear 0s infinite normal var(--animation-state);
 
     transform-style: preserve-3d;
     perspective: 200px;
@@ -54,7 +59,7 @@ h1 {
     /* setting initial prevented the animation from working.
         animation: flying-banner 2s linear 0s initial normal forwards; 
     */
-    animation: flying-banner var(--kill-animation,5s) linear 0s normal forwards;
+    animation: flying-banner var(--kill-animation,5s) linear 0s normal forwards var(--animation-state);
 }
 
 /* 

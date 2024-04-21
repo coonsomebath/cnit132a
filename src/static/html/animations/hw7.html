@@ -10,7 +10,19 @@
       baseElement.href='/';
       document.documentElement.style.setProperty('--clouds',"url('/src/static/images/animations/clouds.png')");
     }
-    function killAnimation(){
+    function toggleAnimation(event){
+      const state = getComputedStyle(document.documentElement).getPropertyValue('--animation-state');
+      switch (state){
+        case 'running':
+          console.log('running');
+          document.documentElement.style.setProperty('--animation-state', 'paused');
+          break;
+        case 'paused':
+          console.log('paused');
+          document.documentElement.style.setProperty('--animation-state', 'running');
+        }
+    }
+    function killAnimation(event){
       document.documentElement.style.setProperty('--kill-animation', '0s');
     }
   </script>
@@ -24,7 +36,10 @@
   <link rel="stylesheet" href="src/static/css/hw7.css">
 </head>
 <body>
-  <button onclick=killAnimation() id="reduce-motion" type="button">Reduce Motion</button>
+  <div id="container-btn">
+    <button id="animation-state" onclick="toggleAnimation(event)" id="reduce-motion" type="button">Toggle Animation</button>
+    <button id="animation-kill" onclick="killAnimation(event)" id="reduce-motion" type="button">Stop Animation</button>
+  </div>
   <div id="sky">
     <h1>Rams Airways</h1>
     <div id="banner">FLY WITH US, WE ARE SAFE.</div>
