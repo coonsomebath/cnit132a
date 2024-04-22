@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <base href="/cnit132a/src">
+  <script>
+    let vueBuild = '.prod';
+    if (window.location.hostname === '127.0.0.1') {
+      const baseElement = document.querySelector('base');
+      baseElement.href = '/';
+      vueBuild = '';
+    }
+    else{
+      const gtagElement = document.createElement('script');
+      gtagElement.src = "https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9";
+      gtagElement.async = true;
+      document.head.appendChild(gtagElement);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-L4Q6HTS9Z9');
+    }
+    const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
+  </script>
+
+  <link rel="icon" href="src/favicon.ico" type="image/x-icon">
+  <title>Homework 7: CSS Shapes & @container</title>
+  <meta name="description" content="Homework 7 CSS Shapes and the use of @container queries.">
+
+  <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
+  <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+
+  <style>
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="macro-container">
+    <header>
+      <nav id="navbar" aria-expanded="false"></nav>
+    </header>
+
+    <h1>
+      Homework 7 <br>
+      <small>CSS Shapes & @container Media Queries</small>
+    </h1>
+
+    <main>
+      <h2>Assignments</h2>
+      <ul>
+        <li><a href="src/static/html/animations/hw7-part1.html">Part 1: CSS Animation</a></li>
+        <li><a href="src/static/html/animations/hw7-part2.html">Part 2: @container CSS at-rule</a></li>
+      </ul>
+    </main>
+
+  </div>
+
+
+
+
+
+
+
+  <!-- development: -->
+  <script>
+    // console.log(vueEndpoint);
+    const scriptElement = document.createElement('script');
+    scriptElement.setAttribute('src', vueEndpoint);
+
+    // Use the onload event to run a callback function after Vue.js is loaded
+    scriptElement.onload = function() {
+        // Load your other scripts that use Vue.js here:
+        const scriptElemNavbar = document.createElement('script');
+        scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
+        document.body.appendChild(scriptElemNavbar);
+    };
+
+    document.body.appendChild(scriptElement);
+  </script>  
+
+  <!-- production: -->
+  <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
+  <script src="src/static/javascript/components/navbar.js"></script> -->
+  <script src="src/static/javascript/components/sidebar.js"></script>
+</body>
+
+</html>

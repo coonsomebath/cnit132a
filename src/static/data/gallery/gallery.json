@@ -29,23 +29,21 @@
     },
     "preprocessors": {
         "title": "Preprocessors",
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "description": "CSS preprocessors like <abbr title='Syntatically Awesome StyleSheets'>SASS</abbr> allow developers to use programming constructs like variables, for-loops, functions, data validation and more in the context of CSS. There are two file types in common use, .scss and .sass. In the .scss flavor, the syntax is the same as traditional CSS, but is super charged with the programming constructs mentioned earlier. In the .sass flavor, the syntax is similar to the python programming language, in that it uses indentation for its punctuation. In both cases, the files are compiled by the SASS compiler into traditional CSS that can be included in one's normal work flow.",
         "imagePath": "src/static/images/gallery/preprocessors_200.jpg",
-        "imageDesc": "Image of CSS Preprocessors Text.",
-        "hrefLink": "#"
+        "imageDesc": "Image of CSS Preprocessors Text."
     },
     "animation": {
         "title": "Animation",
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "description": "CSS Animation is a wonderful tool that allows developers to create an impression on the viewer by adding dynamic elements to an otherwise static webpage. Animations is really a discipline unto itself, from simple text animations to full blown three dimensional effects for developing games and virtual reality. <br> &nbsp;&nbsp;&nbsp;In addition, we touched on the use of the @container CSS at-rule. This rule allows us to make the elements on the page responsive relative to its parent container's dimensions instead of the viewport with traditional media queries.",
         "imagePath": "src/static/images/gallery/animations_200.jpg",
         "imageDesc": "Image of CSS Animation Word Art.",
-        "hrefLink": "#"
+        "hrefLink": "src/static/html/animations/hw7.html"
     },
     "seo_analytics": {
         "title": "SEO & Final Analytics Report",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
         "imagePath": "src/static/images/gallery/seo_200.jpg",
-        "imageDesc": "Image of SEO Infographic.",
-        "hrefLink": "#"
+        "imageDesc": "Image of SEO Infographic."
     }
 }
