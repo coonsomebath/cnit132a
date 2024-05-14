@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-L4Q6HTS9Z9');
+    </script> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base href="/cnit132a/src">
+    <script>
+        /* Development: this swapping is causing console.errors, but not a problem. strictly a development output.
+        * commenting out script tag and uncommenting <base href="/"> fixes it, but you can't
+        * keep toggling it between views (local vs gh.Pages) for every webpage and path coded!
+        */
+       let vueBuild = '.prod';
+       if(window.location.hostname === '127.0.0.1'){
+            const baseElement = document.querySelector('base');
+            baseElement.setAttribute('href', '/');
+            vueBuild = '';
+        }else{
+            const gtagElement = document.createElement('script');
+            gtagElement.src = "https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9";
+            gtagElement.async = true;
+            document.head.appendChild(gtagElement);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-L4Q6HTS9Z9');
+        }
+        const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
+    </script>
+
+    
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
+    <title>Final Analytics Report</title>
+    <meta name="description" content="CNIT 132A: Final Analytics Report for class portfolio web traffic.">
+
+
+    <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+</head>
+<body>
+    <div class="macro-container">
+        <header>
+            <nav id="navbar" aria-expanded="false"></nav>
+        </header>
+    </div>
+
+    <main>
+        <h1>
+            meat and potatoes part II
+        </h1>
+    </main>
+
+
+
+    <!-- development: -->
+    <script>
+    // console.log(vueEndpoint);
+    const scriptElement = document.createElement('script');
+    scriptElement.setAttribute('src', vueEndpoint);
+
+    // Use the onload event to run a callback function after Vue.js is loaded
+    scriptElement.onload = function() {
+        // Load your other scripts that use Vue.js here:
+        const scriptElemNavbar = document.createElement('script');
+        scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
+        document.body.appendChild(scriptElemNavbar);
+    };
+
+    document.body.appendChild(scriptElement);
+    </script>  
+
+    <!-- production: -->
+    <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
+    <script src="src/static/javascript/components/navbar.js"></script> -->
+    <script src="src/static/javascript/components/sidebar.js"></script>    
+</body>
+</html>

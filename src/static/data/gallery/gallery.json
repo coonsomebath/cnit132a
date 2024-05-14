@@ -44,6 +44,7 @@
         "title": "SEO & Final Analytics Report",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
         "imagePath": "src/static/images/gallery/seo_200.jpg",
-        "imageDesc": "Image of SEO Infographic."
+        "imageDesc": "Image of SEO Infographic.",
+        "hrefLink": "src/static/html/seo_analytics/hw8.html"
     }
 }

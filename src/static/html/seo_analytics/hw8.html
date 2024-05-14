@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base href="/cnit132a/src">
+    <script>
+      let vueBuild = '.prod';
+      if (window.location.hostname === '127.0.0.1') {
+        const baseElement = document.querySelector('base');
+        baseElement.href = '/';
+        vueBuild = '';
+      }
+      else{
+        const gtagElement = document.createElement('script');
+        gtagElement.src = "https://www.googletagmanager.com/gtag/js?id=G-L4Q6HTS9Z9";
+        gtagElement.async = true;
+        document.head.appendChild(gtagElement);
+  
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+  
+        gtag('config', 'G-L4Q6HTS9Z9');
+      }
+      const vueEndpoint = `https://unpkg.com/vue@3.4.15/dist/vue.global${vueBuild}.js`;
+    </script>
+
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
+    <title>Homework 8: SEO Strategies and Final Analytics Report</title>
+    <meta name="description" content="CNIT 132A Homework 8 index page for Part I: SEO Strategies and Part II: Final Analytics Report">
+
+    <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
+    <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+    <style>
+        h1 {
+          text-align: center;
+        }
+      </style>
+</head>
+<body>
+    <div class="macro-container">
+        <header>
+            <nav id="navbar" aria-expanded="false"></nav>
+        </header>
+        <h1>
+            Homework 8 <br>
+            <small>SEO Strategies and Final Analytics Report</small>
+        </h1>
+
+        <main>
+            <h2>Assignment Components</h2>
+            <ul>
+                <li><a href="src/static/html/seo_analytics/seostrategies.html">SEO Strategies</a></li>
+                <li><a href="src/static/html/seo_analytics/analytics.html">Final Analytics Report</a></li>
+            </ul>
+        </div>
+        </main>
+
+    <!-- development: -->
+  <script>
+    // console.log(vueEndpoint);
+    const scriptElement = document.createElement('script');
+    scriptElement.setAttribute('src', vueEndpoint);
+
+    // Use the onload event to run a callback function after Vue.js is loaded
+    scriptElement.onload = function() {
+        // Load your other scripts that use Vue.js here:
+        const scriptElemNavbar = document.createElement('script');
+        scriptElemNavbar.setAttribute('src', 'src/static/javascript/components/navbar.js');
+        document.body.appendChild(scriptElemNavbar);
+    };
+
+    document.body.appendChild(scriptElement);
+  </script>  
+
+  <!-- production: -->
+  <!-- <script src="https://unpkg.com/vue@3.4.15/dist/vue.global.prod.js"></script>
+  <script src="src/static/javascript/components/navbar.js"></script> -->
+  <script src="src/static/javascript/components/sidebar.js"></script>
+</body>
+</html>
