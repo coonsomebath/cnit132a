@@ -1,9 +1,9 @@
 {
     "analytics": {
-        "title": "Analytics",
+        "title": "Google Analytics 4",
         "description": "The Google Analytics 4 platform is a powerful tool that allows you slice and dice user traffic data to gain insight on user behavior. With insight from different dimensions, you can make informed decisions affecting <span class=no-break>UI/UX</span>, resource allocation, marketing <span class=no-break>performance, etc.</span>",
         "imagePath": "src/static/images/gallery/ga4_200.jpg",
-        "imageDesc": "Image of Google Analytics 4 Infographic.",
+        "imageDesc": "Image of Google Analytics 4 Logo to improve SEO optimization.",
         "hrefLink": "src/static/html/analytics/ga4.html"
     },
     "performance_organization": {
@@ -17,7 +17,7 @@
         "title": "Grid & Flexbox",
         "description": "Flexbox and Grid are great tools for laying out website structure. It makes layout easier with it's properties. You don't have to choose between them, but rather you can use them in combination to accomplish your layout pattern.",
         "imagePath": "src/static/images/gallery/grid_flexbox_200.jpg",
-        "imageDesc": "Image of CSS Grid and Flexbox.",
+        "imageDesc": "Image of columns and rows to represent CSS Grid and Flexbox.",
         "hrefLink": "src/static/html/flex_grid/hw4.html"
     },
     "semantics_accessibility": {
@@ -31,7 +31,7 @@
         "title": "Preprocessors",
         "description": "CSS preprocessors like <abbr title='Syntatically Awesome StyleSheets'>SASS</abbr> allow developers to use programming constructs like variables, for-loops, functions, data validation and more in the context of CSS. There are two file types in common use, .scss and .sass. In the .scss flavor, the syntax is the same as traditional CSS, but is super charged with the programming constructs mentioned earlier. In the .sass flavor, the syntax is similar to the python programming language, in that it uses indentation for its punctuation. In both cases, the files are compiled by the SASS compiler into traditional CSS that can be included in one's normal work flow.",
         "imagePath": "src/static/images/gallery/preprocessors_200.jpg",
-        "imageDesc": "Image of CSS Preprocessors Text."
+        "imageDesc": "Image of CSS Preprocessors Text with radial gradient."
     },
     "animation": {
         "title": "Animation",
@@ -41,8 +41,8 @@
         "hrefLink": "src/static/html/animations/hw7.html"
     },
     "seo_analytics": {
-        "title": "SEO & Final Analytics Report",
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit delectus debitis totam voluptas veniam optio earum repudiandae, praesentium laborum omnis placeat tempora atque ipsa quos iusto magni ratione ducimus dolorem!",
+        "title": "SEO & GA4 Analytics Report",
+        "description": "<abbr title=\"Search Engine Optimization\">SEO</abbr> optimization techniques is an important tool which sends signals to search engines and encourages them to play a match making role by recommending  relevant, original, and authoritative content to users. To further fine-tune results, one can use Google Analytics 4 to measure and observe website and webpage performance. With the metics that GA4 provides, one can make changes to the website and measure the effectiveness of those changes without the need rely on pure intuition.",
         "imagePath": "src/static/images/gallery/seo_200.jpg",
         "imageDesc": "Image of SEO Infographic.",
         "hrefLink": "src/static/html/seo_analytics/hw8.html"

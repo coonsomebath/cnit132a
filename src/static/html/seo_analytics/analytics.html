@@ -42,11 +42,26 @@
     
     <link rel="icon" href="src/favicon.ico" type="image/x-icon">
     <title>Final Analytics Report</title>
-    <meta name="description" content="CNIT 132A: Final Analytics Report for class portfolio web traffic.">
+    <meta name="description" content="CNIT 132A: Final Analytics Report for class portfolio web traffic. This
+    page uses Google Analytics 4 to analyze user traffic. It focuses on analyzing Views per user,
+    Sessions per user, Average engagement time, and Average session duration with respect to the Page
+    path and screen class dimension.">
 
 
     <link rel="stylesheet" href="src/static/css/common.css" type="text/css">
     <link rel="stylesheet" href="src/static/css/components/navbar.css" type="text/css">
+
+    <style>
+        h1, h2 {
+             text-align: center;
+             padding-inline: 2ch;
+        }
+
+        section {
+            max-width: 80ch;
+            padding-inline: 2ch;
+        }
+    </style>
 </head>
 <body>
     <div class="macro-container">
@@ -57,8 +72,216 @@
 
     <main>
         <h1>
-            meat and potatoes part II
+            Google Analytics 4 Analysis of Website Traffic
         </h1>
+
+        <section>
+            <h2>What are you trying to convey?</h2>
+
+            <p>
+                I think this is an important question that you need to ask when you have
+                a website that is informational in nature. For this type of content, 
+                Google will rank such a webpage higher if it contains unique insights
+                and shows characteristics of being authoritative in its niche. Users are
+                likely to feel the same way and other content creators will link to these
+                webpages because they want to recommend great content to their audience
+                to drive value as they try to delight them.
+            </p>
+        </section>
+
+        <section>
+            <h2>&quot;What gets measured, get managed&quot;</h2>
+
+            <p>
+                <a href="https://en.wikipedia.org/wiki/Peter_Drucker" rel="noopener external" target="_blank">
+                    Peter Drucker, a management consultant and scholar,
+                </a> 
+                believes that to effectively manage something, you need to
+                measure it. It's hard to determine the objective effectiveness of some 
+                course of action if you do not have a concrete reference point.
+                <abbr title="Google Analytics 4">GA4</abbr>
+                has many metrics that it captures that you can use that will help you with
+                your analysis of webpage performance. Some of the metrics we will be covering
+                will be 
+                <strong>Views per user</strong>, 
+                <strong>Sessions per user</strong>, 
+                <strong>Average engagement time</strong>, 
+                and 
+                <strong>Average session duration</strong>. 
+
+                In this discussion, the metrics will be in relation to the &quot;Page path and
+                screen class&quot; dimension analysis. We will observe which webpages users
+                visited most often and how long they stayed engaged with the content. You
+                can view the analytics data with the following link to the pdf file:
+                <a href="src/static/data/ga4/ga4_final_report.pdf">
+                    Google Analytics 4 data measuring webpage interest
+                </a>.
+            </p>
+            <p>
+                Let's briefly define the metrics that help to quantify our observation of interest.
+
+                A View is what it sounds like; it&apos;s when a view event is triggered and logged
+                documenting when the user views a particular webpage. Recall, we are focusing on 
+                page path i.e. particular webpages within the website. A user is a device that has
+                been assigned a unique device ID by the GA4 tag embedded in the html source code.
+                A person may access your website from different devices and thus a person can 
+                represent multiple users under this identification mechanism. <strong>Views per user</strong>
+                measures how many times, on average, a webpage has been viewed by a user.
+            </p>
+            <p>
+                A Session is logged when a user visits your website. A page view is one of several
+                events that will trigger a logged session by a user. This differs from the previously
+                discussed View in that a Session is not measuring a viewed page, but rather is measuring
+                a session, a visit to the website, under the technical definition. In addition, a session
+                times out after thirty minutes of inactivity. If a user continues activity after
+                the timeout, it will be considered a different session. It may be possible to
+                adjust this default timeout duration to accommodate your site&apos;s characteristics.
+                <strong>Sessions per user</strong> measures how many times, more specifically, how many sessions a
+                user, on average, has with your website over the analysis period. In other words, 
+                how often do they visit and engage with your website. When we apply this metric to
+                a particular path, like in our dimensional analysis of "Page path and screen class",
+                it suggests how many times, on average, the user re-visits a path during a collection
+                of their sessions set. 
+                It is like asking, &quot;Does a user find the information interesting enough to go back 
+                to that same webpage to revisit the information in a subsequent session?&quot; This is
+                different from a view in that a user can view a page multiple times during a session and
+                multiple views will be documented, but sessions per user will capture if the user viewed
+                that page at all during a session. In other words, it&apos;s like the user saying, 
+                &quot;I already visited that page last time, I&apos;m done with it, no need to 
+                look at it again&quot; or &quot;I visited that page last time, but I want to see if
+                anything changed, if there is updated information&quot;.
+            </p>
+            <p>
+                In addition to a user visiting your website, it is also important for you to retain their
+                attention. The whole point of having a website is to provide a product or service that
+                a user finds valuable and worth their time or resources. We can use Average engagement
+                time and Average session duration to get an idea of the perceived value a user is
+                getting from your digital property. <strong>Average engagement time</strong> is 
+                the amount of time a user is spending on your website and is actively interacting with
+                it as opposed to just having the webpage open in one of the user&apos;s browser tab.
+                With respect to Page path and screen class, average engagement time measures how 
+                much time a user is spending on a particular webpage. This is opposed to
+                <strong>Average session duration</strong>, which measures how much time a user is
+                spending on your website during one of their sessions. Again with respect to a
+                webpage, it tells you how much time the user is spending on your website during one
+                of their average sessions where they also visited that particular path/page. It
+                does not measure how much time a user is spending on a particular page; it measures
+                the duration the user spent on the website where they landed on that page as well
+                and had engaged with it.
+            </p>
+        </section>
+
+        <section>
+            <h2>CSS Animations</h2>
+
+            <p>
+                In Google Analytics 4, a View is the number of times a page has been landed on
+                by the user. View per user measures aggregate views over the analysis period,
+                which is from March 1 - May, 18 2024, divided by the number of Users the site
+                had over that same period. The horizontal bar chart(in the linked pdf) shows the 
+                top 5 urls viewed were for the landing page(68), the animations page(30), 
+                the src page(25), the contact page(12), then the about page(11). 
+            </p>
+            <p>
+                In terms of views per user, the landing page had 2.96, the animations page had
+                2.50, the src page had 2.08, the contact page had 1.20, and the about page had
+                2.20. The landing page(index.html) is expected to have the highest number of
+                views given that it provides navigation services to the other pages.  
+            </p>
+            <p>
+                Users found the animations page the most interesting page over the period.
+                However, this animations page is really just a landing page for the assignment,
+                which had two parts and thus two links, CSS Animations and @container CSS at-rule.
+                I had failed to anticipate the need to measure engagement time on those individual
+                webpages and so I did not add the Google tag to those pages. However, this navigation
+                page saw an Average engagement time of 16 seconds and and Average session duration of
+                2 minutes and 12 seconds. Thus on average, the user spent 16 seconds on that navigation
+                page and spent on average 2min 12sec with the website where the animation landing page
+                was one of the routes visited. To improve the quality of the observation, I would go 
+                back and add the GA4 tag to the animation and css shapes webpages to measure the 
+                events there as well to get a better understanding of user behavior. However
+                even with incomplete visibility, the average duration suggests that most people
+                only look at results and are not concerned with implementation. People are busy, 
+                curious, but do not find the content valuable enough to stick around.
+            </p>
+        </section>
+
+        <section>
+            <h2>Src Directory</h2>
+            <p>
+                Ignoring the landing page(index.html), the source page was the second most visited
+                path. This path was not intended to be viewed by the user. It was exposed because
+                the href attribute was set to an empty string on an anchor tag. So when a user 
+                clicked on the anchor tag, the browser would show the src directory and its 
+                subdirectories and files. The directory had an average engagement time of 15sec 
+                and an average session duration of 2m 31s. The average engagement time suggests 
+                that people were curious enough to spend some time to look around at the different
+                directories and files. This is understandable behavior; it is like walking down a
+                path and finding a mysterious trail. I would feel adventurous and explore the
+                path myself. The exploration of this path is not desireable and the report provides
+                feedback to the researcher to make them aware of the condition and they can 
+                take corrective action to close the vulnerability.
+            </p>
+        </section>
+
+        <section>
+            <h2>Contact Page</h2>
+            <p>
+                The last path we will be covering is the contact page. This page has an average
+                engagement time of 5s and an average session duration of 1m 40s. The average
+                engagement time of 5s was expected to be very short because the content of that
+                page is very minimal. It consists of only a thank you message and an email link.
+                Personally, five seconds seems kind of a long time to spend on the page given
+                the lack of content. It suggest to me that the user may have opened the developer
+                tools to quickly look at the html of the email link. With Views per user of 1.20
+                and sessions per user of 1.10, it suggests that people did not bother to check back 
+                on the webpage in subsequent sessions. This suggests to me that when creating a
+                webpage, one should make extra effort to create more content on the page to prevent
+                a user from drawing the conclusion that the page will always be sparse and that
+                there is no need to check it again in the future because there is 
+                &quot;noting there&quot;.
+            </p>
+        </section>
+
+        <section>
+            <h2>Frequency of Interest</h2>
+            <p>
+                The last observation we will cover has to do with when users tend to visit the
+                website. In the line plot, which can be viewed in the linked pdf above, there
+                is a clear trend with respect to spikes of user traffic. Users tend to visit
+                the website on Fridays, but mostly Saturdays. It may be possible that users
+                have finished their homework and may want to see how others have solved the
+                same assignment. 
+            </p>
+            <p>
+                There were also anomalous spikes of traffic in May. This coincides with the
+                animations homework assignment. This assignment was challenging and it is
+                possible that people wanted to see how others approached the solution.
+            </p>
+        </section>
+
+        <section>
+            <h2>Conclusion</h2>
+            <p>
+                Analytical tools such a Google Analytics 4 is an important tool to provide insight into
+                user behavior and website performance metrics. What interests you and what interests
+                the user can be very different. It can be very unproductive to assume that your
+                interest will align with the average user. It is always a good idea to use objective
+                analytical methods and tools to observe facts as opposed to going on intuition.
+                Intuition might work well for some individuals who are truly mavens, but this is
+                the exception and not the rule. 
+            </p>
+            <p>
+                Given the suggestive information of the line plot, bar chart, and table, it suggests
+                to me that one can improve the analytics data by giving the audience what they want
+                and when they want it. The content of the website should focus on challenging
+                material and unexpected finds that may lead to an adventure. Furthermore, that
+                content should be available on weekends and when the content is challenging, it should
+                be available earlier and as soon as possible.
+            </p>
+        </section>
+
+
     </main>
 
 
